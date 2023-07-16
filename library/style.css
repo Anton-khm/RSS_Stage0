@@ -19,9 +19,7 @@ html {
     scroll-behavior: smooth;
 }
 
-.header {
-    background: #0C0C0E;
-}
+.header {}
 
 h1 {
     margin-right: 397px;
@@ -46,20 +44,26 @@ h1 {
     color: white;
 }
 
-ul>.nav-item {
+/* ul>.nav-item {
     margin-right: -10px;
+} */
+
+.nav-item a {
+    display: block;
+    padding: 0px 10px;
 }
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #0C0C0E;
 }
 
 .profile {
     width: 28px;
     height: 28px;
-    background-image: url(./assets/svg/icon_profile.png);
+    background-image: url(./assets/svg/icon_profile.svg);
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -79,10 +83,11 @@ ul>.nav-item {
     display: flex;
     justify-content: flex-end;
     list-style: none;
+    gap: 10px;
 }
 
 .nav-link {
-    margin: 20px;
+    /* margin: 20px; */
     line-height: 50px;
     text-decoration: none;
     color: #ddd4d4;
@@ -115,6 +120,9 @@ ul>.nav-item {
 .section-welcome {
     min-height: 600px;
     background: url(./assets/img/Welcome.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .section-welcome-title {
@@ -188,7 +196,7 @@ ul>.nav-item {
     overflow: hidden;
 }
 
-.slides {
+.slider_images {
     display: flex;
     max-width: 1400px;
     /* overflow-x: auto; */
@@ -197,11 +205,11 @@ ul>.nav-item {
     -webkit-overflow-scrolling: touch;
 }
 
-.links {
+.slider_links {
     margin-top: 35px;
 }
 
-.links>a {
+.slider_links a {
     display: inline-flex;
     width: 16px;
     height: 16px;
@@ -214,10 +222,20 @@ ul>.nav-item {
     position: relative;
 }
 
-.links>a:active {
+.slider_links a::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    width: 22px;
+    height: 22px;
+    background: #e8347400;
+}
+
+.slider_links>a:active {
     top: 1px;
 }
 
-.links>a:focus {
+.slider_links>a:focus {
     background: #000;
 }
