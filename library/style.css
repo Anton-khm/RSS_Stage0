@@ -5,6 +5,12 @@
 }
 
 @font-face {
+    font-family: 'Inter';
+    src: url("./assets/fonts/Inter/Inter-Bold.ttf");
+    font-weight: 800;
+}
+
+@font-face {
     font-family: 'Forum';
     src: url("./assets/fonts/Forum/Forum-Regular.ttf");
     font-weight: 400;
@@ -158,8 +164,9 @@ h1 {
 }
 
 .section-title {
+    position: relative;
+    margin: 0;
     margin-top: 20px;
-    margin-bottom: 13px;
     font-family: 'Forum', sans-serif;
     font-weight: 400;
     font-size: 40px;
@@ -169,15 +176,17 @@ h1 {
 }
 
 .section-title::after {
+    position: absolute;
     content: '';
-    display: block;
+    left: 29px;
+    top: 60px;
+    content: '';
     width: 50px;
-    margin: 20px auto;
     border-bottom: 1px solid #0C0C0E;
 }
 
 .section-subtitle {
-    margin-top: 7px;
+    padding-top: 41px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -210,16 +219,16 @@ h1 {
 }
 
 .slider_links a {
+    position: relative;
     display: inline-flex;
     width: 16px;
     height: 16px;
-    background: #BB945F;
+    margin: 0px 3px 0.5rem 3px;
     text-decoration: none;
     align-items: center;
     justify-content: center;
+    background: #BB945F;
     border-radius: 50%;
-    margin: 0px 3px 0.5rem 3px;
-    position: relative;
 }
 
 .slider_links a::after {
@@ -239,3 +248,172 @@ h1 {
 .slider_links>a:focus {
     background: #000;
 }
+
+.section-favorites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1439px;
+}
+
+.section-favorites-title>.section-title::after {
+    width: 50px;
+    left: 56px;
+    top: 60px;
+}
+
+.favorites-selection {
+    display: block;
+    align-self: flex-start;
+    margin-left: 20px;
+    margin-top: 53px;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.selection-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0px;
+    color: #000000;
+
+    padding: 5px 0px;
+}
+
+.section-favorites-radiobuttons:first-of-type {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+label {
+    margin-right: 92px;
+    line-height: 32px;
+}
+
+input {
+    appearance: none;
+
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin: 0;
+    margin-right: 22px;
+    margin-top: 1px;
+
+    position: relative;
+    top: 6px;
+}
+
+input:checked {
+    border: 6px solid black;
+}
+
+.favorites-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    column-gap: 220px;
+    margin-top: 14px;
+}
+
+.card-wrapper {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 555px;
+    width: 550px;
+    margin: 20px 20px;
+    padding: 10px;
+
+    background-color: #FFF;
+    border: 1px solid #000000;
+}
+
+.card-image {
+    position: absolute;
+    right: -41px;
+    bottom: -1px;
+}
+
+.card-main-title {
+    margin: 0;
+    font-size: 20px;
+}
+
+.card-main-title::after {
+    width: 60px;
+    left: 0px;
+    top: 40px;
+    border-bottom: 1px solid #BB945F;
+}
+
+.card-subtitle {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    color: #000000;
+}
+
+.card-description {
+    margin: 0;
+    width: 375px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 40px;
+    letter-spacing: 2px;
+    color: #000000;
+    text-transform: capitalize;
+}
+
+.buy-action {
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: auto;
+    letter-spacing: 1px;
+
+    text-align: center;
+    text-decoration: none;
+    color: #0C0C0E;
+
+    border: 1px solid #0C0C0E;
+    border-radius: 3%;
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.buy-action:hover
+
+/* ,
+.buy-action:focus  */
+    {
+    background-color: #BB945F;
+    border: none;
+}
+
+/* .buy-action:active {
+    background-color: white;
+    color: black;
+    outline: 1px solid black;
+} */
