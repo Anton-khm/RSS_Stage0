@@ -563,12 +563,7 @@ input:checked {
 
 .tel-item {}
 
-.tel-link {
-    text-decoration: none;
-    color: #000000;
-    transition: color 0.5s;
-}
-
+.tel-link,
 .mail-link {
     text-decoration: none;
     color: #000000;
@@ -736,4 +731,122 @@ h4 {
     width: 75px;
     padding: 9px 11px;
     font-size: 10px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 42px;
+    min-height: 250px;
+    background: #000;
+}
+
+.soc-media-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 20px;
+}
+
+.soc-media-wrapper::after {
+    position: absolute;
+    content: '';
+    left: 0px;
+    top: 119px;
+    width: 100%;
+    border-bottom: 1px solid #ffffff;
+}
+
+.address {
+    text-decoration: none;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 19px;
+}
+
+.soc-media-list {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+}
+
+/* .nav-item a {
+    display: block;
+    padding: 0px 10px;
+} */
+
+.soc-icon {
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.twitter {
+    background-image: url(./assets/svg/u_twitter-alt.svg);
+}
+
+.instagram {
+    background-image: url(./assets/svg/u_instagram.svg);
+}
+
+.facebook {
+    background-image: url(./assets/svg/u_facebook-f.svg);
+}
+
+.soc-media-list a {
+    display: block;
+    padding: 0px 10px;
+}
+
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    gap: 9px;
+}
+
+.schedule {
+    color: #FFF;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.creation-date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 20px;
+    /* margin: 0 auto; */
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    color: #ffffff;
+}
+
+.rss-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60.7%;
+}
+
+.github {
+    display: block;
+}
+
+.github,
+.rss {
+    color: #ddd4d4;
+    text-decoration: none;
+    line-height: 45px;
 }
