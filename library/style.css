@@ -46,7 +46,7 @@ html {
 
 .container {
     max-width: 1440px;
- margin: 0 auto;
+    margin: 0 auto;
     min-height: 50px;
 }
 
@@ -113,7 +113,7 @@ h1 {
     background-repeat: no-repeat;
 }
 
-.profile:hover{
+.profile:hover {
     transition: 0.5s;
     opacity: 0.5;
 }
@@ -234,7 +234,7 @@ h1 {
     background: #000;
 }
 
-.slider_buttons a:nth-child(n+2){
+.slider_buttons a:nth-child(n+2) {
     background: #0C0C0E;
 }
 
@@ -273,46 +273,66 @@ fieldset {
     display: flex;
     align-items: center;
     margin-top: 24px;
+    column-gap: 72px;
 }
 
-label {
-    margin-right: 92px;
-    /* cursor: pointer; */
+.radio {
+    position:relative;
+    width: 125px;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
 }
 
-input {
-    position: relative;
-    top: 1px;
-    left: 1px;
+.real-radio {
+    position: absolute;
+    cursor: pointer;
+    width: 38px;
+    height: 33px;
     margin: 0;
-    margin-right: 20px;
+    opacity: 0;
+    z-index: 5;
+}
+
+.real-radio:checked+.custom-radio::before {
+    display: block;
+}
+
+.custom-radio {
+    position: relative;
+    display: inline-block;
     width: 17px;
     height: 17px;
-    appearance: none;
-    border-radius: 50%;
+    background: #FFF;
     border: 2px solid #000000;
-    transition: 0.2s all linear;
-    /* cursor: pointer; */
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 20px;
+    margin-top: 4px;
 }
 
-input:checked{
-    border: 6px solid black;
+input:checked~label,
+input:not(:checked)~label {
+    cursor: pointer;
 }
 
-input:checked+label {
-     /* border: 6px solid black; */
-    font-weight: 700;
+input:checked~label {
+    font-weight: bold;
 }
 
-.section-favorites-radiobuttons input::after {
-    content: "";
+.custom-radio::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
     position: absolute;
-    left: -7px;
-    top: -6px;
-    width: 125px;
-    height: 27px;
-    background: rgba(255, 255, 255, 0);
-cursor:pointer;}
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
 
 .favorites-cards {
     display: flex;
