@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+    width: 0px;
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -153,7 +157,9 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 837px;
+    max-height: 849px;
+    justify-content: flex-start;
+    margin-bottom: 27px;
 }
 
 .section-title {
@@ -168,6 +174,10 @@ h1 {
     color: #0C0C0E;
 }
 
+.section-title-about {
+    margin-top: 20px;
+}
+
 .section-title::after {
     position: absolute;
     content: '';
@@ -180,7 +190,8 @@ h1 {
 .section-subtitle {
     text-align: center;
     color: #0C0C0E;
-    padding: 40px 10px 0px 10px;
+    padding: 0px 20px 0px;
+    margin-top: 61px;
 }
 
 .section-slider {
@@ -257,13 +268,15 @@ h1 {
 .favorites-selection {
     display: flex;
     align-self: flex-start;
-    width: 70%;
+    max-width: 715px;
+    width: 95%;
     margin-left: 20px;
+    margin-right: 20px;
     margin-top: 53px;
 }
 
 fieldset {
-    width: 70%;
+    width: 100%;
     margin: 0;
     padding: 0;
     border: none;
@@ -277,17 +290,23 @@ fieldset {
 .section-favorites-radiobuttons:first-of-type {
     display: flex;
     margin-top: 24px;
-    width: 100%;
     justify-content: space-between;
-    column-gap: 5%;
 }
 
 .radio {
     position: relative;
     display: flex;
-    width: 125px;
+    width: 110px;
     align-items: center;
     letter-spacing: 1px;
+}
+
+.radio:nth-child(3) {
+    width: 125px;
+}
+
+.radio:nth-child(4) {
+    width: 125px;
 }
 
 .real-radio {
@@ -536,7 +555,9 @@ input:checked~label {
     display: flex;
     flex-direction: column;
     row-gap: 41px;
-    min-height: 575px;
+    max-height: 1055px;
+    justify-content: flex-start;
+    margin-bottom: 27px;
 }
 
 .section-contacts>.section-title {
@@ -558,7 +579,7 @@ input:checked~label {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    row-gap: 28px;
+    row-gap: 24px;
 }
 
 .numbers-list-title {
@@ -568,7 +589,7 @@ input:checked~label {
 .numbers-list {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 9px;
     list-style: none;
 }
 
@@ -680,7 +701,7 @@ h3 {
 }
 
 #readers-name {
-    margin: 11px 0px 23px;
+    margin: 11px 0px 25px;
 }
 
 h4 {
@@ -782,7 +803,7 @@ h4 {
     position: absolute;
     content: '';
     left: 0px;
-    top: 119px;
+    top: 121px;
     width: 100%;
     border-bottom: 1px solid #ffffff;
 }
@@ -835,7 +856,7 @@ h4 {
     text-align: right;
     margin: 0;
     padding: 0;
-    gap: 9px;
+    gap: 12px;
     font-size: 15px;
     line-height: 20px;
 }
@@ -856,7 +877,7 @@ h4 {
 }
 
 .year {
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .github {
@@ -870,18 +891,58 @@ h4 {
     line-height: 45px;
 }
 
-.burger_menu {
+.burger_menu_btn {
     display: none;
+    margin-left: 40px;
+    position: relative;
+    width: 45px;
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 8px;
+}
+
+.burger_menu_btn {
+    color: #9e9e9e;
+    transition: color 0.5s;
+}
+
+.burger_line {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background: #FFFFFF;
+}
+
+.burger_line::before,
+.burger_line::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #FFFFFF;
+}
+
+.burger_line::after {
+    top: 10px;
 }
 
 .slider_left_arrow,
 .slider_right_arrow {
+    display: none;
+    position: absolute;
     width: 24px;
     height: 24px;
-    border: none;
     padding: 0;
     background: none;
-    display: none;
+    border: none;
+    cursor: pointer;
 }
 
 .slider_left_arrow {
@@ -890,6 +951,21 @@ h4 {
 
 .slider_right_arrow {
     background-image: url(./assets/svg/Carret_Right.svg);
+}
+
+.slider_left_arrow {
+    left: -82px;
+    bottom: 262px;
+}
+
+.slider_right_arrow {
+    right: -82px;
+    bottom: 262px;
+}
+
+.slider_left_arrow,
+.slider_right_arrow {
+    display: block;
 }
 
 @media screen and (max-width: 768px) {
@@ -902,57 +978,12 @@ h4 {
         display: none;
     }
 
-    .burger_menu {
-        display: flex;
-        align-items: center;
-        margin-left: 40px;
-        width: 45px;
-        height: 20px;
-        border: none;
-        background: none;
-        cursor: pointer;
-        padding: 0;
-    }
-
-    .burger_line {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        height: 2px;
-        background: #FFFFFF;
-    }
-
-    .burger_line::before,
-    .burger_line::after {
-        content: "";
-        position: absolute;
-        top: -8px;
-        left: 0px;
-        width: 100%;
-        height: 2px;
-        background: #FFFFFF;
-    }
-
-    .burger_line::after {
-        top: 8px;
+    .burger_menu_btn {
+        display: block;
     }
 
     .slider_images>div:nth-child(n+3) {
         display: none;
-    }
-
-    .slider_left_arrow,
-    .slider_right_arrow {
-        position: absolute;
-        display: flex;
-    }
-
-    .slider_left_arrow {
-        left: 100px;
-    }
-
-    .slider_right_arrow {
-        right: 100px;
     }
 
     .slider_buttons a:nth-child(n+4) {
@@ -975,18 +1006,9 @@ h4 {
         margin-bottom: 40px;
     }
 
-    .price-list-wrapper {
+    /* .price-list-wrapper {
         flex-direction: column;
-    }
-
-    .contacts-wrapper {
-        flex-direction: column;
-    }
-
-    .map-wrapper {
-        margin-top: 100px;
-        align-self: center;
-    }
+    } */
 
     .section-wrapper {
         align-items: center;
@@ -1023,47 +1045,8 @@ h4 {
         display: none;
     }
 
-    .burger_menu {
-        display: flex;
-        align-items: center;
-        margin-left: 40px;
-        width: 45px;
-        height: 20px;
-        border: none;
-        background: none;
-        cursor: pointer;
-        padding: 0;
-    }
-
-    .burger_line {
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        height: 2px;
-        background: #FFFFFF;
-    }
-
-    .burger_line::before,
-    .burger_line::after {
-        content: "";
-        position: absolute;
-        top: -8px;
-        left: 0px;
-        width: 100%;
-        height: 2px;
-        background: #FFFFFF;
-    }
-
-    .burger_line::after {
-        top: 8px;
-    }
-
-    .burger_menu:active .burger_line {
-        transform: rotate(45deg);
-    }
-
-    .burger_menu:active .burger_line::after {
-        transform: rotate(45deg);
+    .burger_menu_btn {
+        display: block;
     }
 
     .slider_images {
@@ -1077,21 +1060,40 @@ h4 {
 
     .slider_left_arrow,
     .slider_right_arrow {
-        position: absolute;
-        display: flex;
-    }
-
-    .slider_left_arrow {
-        left: -50px;
-    }
-
-    .slider_right_arrow {
-        right: -50px;
+        display: block;
     }
 
     .slider_buttons a:nth-child(n+4) {
         display: inline-flex;
     }
+
+    .section-about {
+        margin-bottom: 13px;
+    }
+
+    .price-list-wrapper {
+        flex-direction: column;
+    }
+
+    .section-contacts>.section-title {
+        margin-top: 40px;
+    }
+
+    .contacts-wrapper {
+        flex-direction: column;
+    }
+
+    .map-wrapper {
+        margin-top: 95px;
+        align-self: center;
+    }
+
+    .section-library-cards>.section-title {
+        margin-bottom: 21px;
+        margin-top: 32px;
+    }
+
+
 }
 
 /* * {
