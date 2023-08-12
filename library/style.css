@@ -753,10 +753,7 @@ h4 {
     display: flex;
     flex-direction: column;
     align-items: end;
-    text-align: end;
     row-gap: 20px;
-    max-width: 456px;
-    min-height: 253px;
 }
 
 .get-card-title {
@@ -764,6 +761,8 @@ h4 {
 }
 
 .get-card-descr {
+    max-width: 456px;
+    text-align: right;
     margin: 0;
     margin-top: 16px;
     font-size: 20px;
@@ -803,7 +802,7 @@ h4 {
     position: absolute;
     content: '';
     left: 0px;
-    top: 121px;
+    top: 119px;
     width: 100%;
     border-bottom: 1px solid #ffffff;
 }
@@ -968,34 +967,10 @@ h4 {
     display: block;
 }
 
-@media screen and (max-width: 768px) {
-
-    h1 {
-        margin-right: auto;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .burger_menu_btn {
-        display: block;
-    }
-
-    .slider_images>div:nth-child(n+3) {
-        display: none;
-    }
-
-    .slider_buttons a:nth-child(n+4) {
-        display: inline-flex;
-    }
-}
-
 @media screen and (max-width: 1279px) {
     .favorites-cards {
         justify-content: center;
         flex-direction: column;
-        /* column-gap: 50px; */
     }
 
     .card-wrapper:nth-child(2n+1) {
@@ -1006,24 +981,6 @@ h4 {
         margin-bottom: 40px;
     }
 
-    /* .price-list-wrapper {
-        flex-direction: column;
-    } */
-
-    .section-wrapper {
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .find-card-wrapper {
-        margin-right: 0px;
-    }
-
-    .get-card-wrapper {
-        margin-top: 21px;
-        align-items: center;
-        text-align: center;
-    }
 }
 
 @media screen and (max-width: 1420px) {
@@ -1093,7 +1050,38 @@ h4 {
         margin-top: 32px;
     }
 
+    .section-wrapper {
+        align-items: center;
+        flex-direction: column;
+    }
 
+    .find-card-wrapper {
+        margin-right: 0px;
+    }
+
+    .get-card-wrapper {
+        margin-top: 21px;
+        align-items: center;
+        text-align: center;
+    }
+
+    p.get-card-descr.form-title {
+        max-width: 600px;
+        text-align: center;
+        margin-top: 21px
+    }
+
+    .buttons-wrapper {
+        margin-top: 20px;
+    }
+
+    .year {
+        margin-right: -45px;
+    }
+
+    .footer-container {
+        row-gap: 40px;
+    }
 }
 
 /* * {
