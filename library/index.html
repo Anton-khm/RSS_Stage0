@@ -22,6 +22,9 @@
                 </ul>
             </nav>
             <a href="#" class="profile"></a>
+            <button class="burger_menu_btn">
+                <span class="burger_line"></span>
+            </button>
         </div>
     </header>
     <main class="main">
@@ -33,11 +36,12 @@
                 </div>
             </section>
             <section class="section section-about" id="about">
-                <h2 class="section-title">About</h2>
+                <h2 class="section-title section-title-about">About</h2>
                 <p class="section-subtitle">The Brooklyn Library is a free workspace, a large number of books and a cozy
                     coffee shop inside </p>
                 <div class="section-slider">
                     <div class="slider_images">
+                        <button class="slider_left_arrow"></button>
                         <div id="slide-1">
                             <img src="./assets/img/image_1.png" alt="Woman choosing a book">
                         </div>
@@ -48,11 +52,14 @@
                             <img src="./assets/img/image_3.png" alt="
                             Large bookcase">
                         </div>
+                        <button class="slider_right_arrow"></button>
                     </div>
                     <div class="slider_buttons">
                         <a href="#slide-1"></a>
                         <a href="#slide-2"></a>
                         <a href="#slide-3"></a>
+                        <a href="#slide-4"></a>
+                        <a href="#slide-5"></a>
                     </div>
                 </div>
             </section>
@@ -64,17 +71,27 @@
                     <fieldset>
                         <legend class="selection-title">Pick favorites of season</legend>
                         <div class="section-favorites-radiobuttons">
-                            <input type="radio" id="seasonChoice1" name="season" value="winter">
-                            <label for="seasonChoice1">Winter</label>
-
-                            <input type="radio" id="seasonChoice2" name="season" value="spring">
-                            <label for="seasonChoice2">Spring</label>
-
-                            <input type="radio" id="seasonChoice3" name="season" value="summer">
-                            <label for="seasonChoice3">Summer</label>
-
-                            <input type="radio" id="seasonChoice4" name="season" value="autumn">
-                            <label for="seasonChoice4">Autumn</label>
+                            <div class="radio">
+                                <input type="radio" id="seasonChoice1" name="season" value="winter" class="real-radio"
+                                    checked>
+                                <span class="custom-radio"></span>
+                                <label for="seasonChoice1">Winter</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="seasonChoice2" name="season" value="spring" class="real-radio">
+                                <span class="custom-radio"></span>
+                                <label for="seasonChoice2">Spring</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="seasonChoice3" name="season" value="summer" class="real-radio">
+                                <span class="custom-radio"></span>
+                                <label for="seasonChoice3">Summer</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="seasonChoice4" name="season" value="autumn" class="real-radio">
+                                <span class="custom-radio"></span>
+                                <label for="seasonChoice4">Autumn</label>
+                            </div>
                         </div>
                     </fieldset>
                 </form>
@@ -255,7 +272,7 @@
             <section class="section section-coffeeshop" id="coffeeshop">
                 <h2 class="section-title">Coffee Shop</h2>
                 <p class="section-subtitle">In our library, we have of cozy coffee shop, welcoming in customers with
-                    frothy cappuccinos and friendly conversation.&nbsp; You can get a favorite book and read in coffee
+                    frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee
                     shop.
                     Our barista to cook you best coffee, and also
                     you can try desserts from bakery.</p>
@@ -338,17 +355,17 @@
                     <div class="contacts-list">
                         <h3 class="card-subtitle numbers-list-title">For All Library Inquiries:</h3>
                         <ul class="numbers-list">
-                            <li class="tel-item">Please Call <a href="tel:+76177302370" class="tel-link">(617)
+                            <li class="tel-item">Please Call <a href="tel:+76177302370" class="tel-link nav-link">(617)
                                     730-2370</a></li>
                             <li class="tel-item">For TTY
-                                Service, Please Call <a href="tel:+76177302370" class="tel-link">(617)
+                                Service, Please Call <a href="tel:+76177302370" class="tel-link nav-link">(617)
                                     730-2370</a></li>
                             <li class="tel-item">Putterham
-                                Library: <a href="tel:+76177302385" class="tel-link">(617) 730-2385</a></li>
+                                Library: <a href="tel:+76177302385" class="tel-link nav-link">(617) 730-2385</a></li>
                         </ul>
                         <h3 class="card-subtitle staff-list-title">Senior Staff</h3>
                         <p class="staff-list">Library Director: <strong><a href="mailto:amandahirst@gmail.com"
-                                    class="mail-link">Amanda
+                                    class="mail-link nav-link">Amanda
                                     Hirst</a></strong>
                         </p>
                     </div>
@@ -396,7 +413,8 @@
         <div class="container footer-container">
             <div class="soc-media-wrapper">
                 <div class="links-container">
-                    <a href="https://goo.gl/maps/DdoW4nuqK6cVfqbY9" class="address schedule">286 Cadman Plaza, New
+                    <a href="https://goo.gl/maps/DdoW4nuqK6cVfqbY9" class="address schedule nav-link">286 Cadman Plaza,
+                        New
                         York,<br>
                         NY
                         11238, United
@@ -420,10 +438,8 @@
                 </div>
             </div>
             <div class="creation-date-wrapper">
-                <div class="rss-container">
-                    <div><span>2023</span></div>
-                    <a href="https://rs.school/js-stage0/" class="rss"><span>The Rolling Scopes School</span></a>
-                </div>
+                <div class="year"><span>2023</span></div>
+                <a href="https://rs.school/js-stage0/" class="rss nav-link"><span>The Rolling Scopes School</span></a>
                 <a href="https://github.com/Anton-khm" class="github nav-link">Anton</a>
             </div>
         </div>
