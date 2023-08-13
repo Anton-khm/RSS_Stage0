@@ -46,6 +46,12 @@ html {
     background-color: #ffffff;
 }
 
+.body_wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
 .header {}
 
 .container {
@@ -901,35 +907,49 @@ h4 {
     outline: none;
     cursor: pointer;
     padding: 0;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
-.burger_menu_btn {
-    color: #9e9e9e;
-    transition: color 0.5s;
-}
-
-.burger_line {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 2px;
-    background: #FFFFFF;
-}
-
-.burger_line::before,
-.burger_line::after {
-    content: "";
+.burger_menu_btn span {
+    display: block;
     position: absolute;
-    top: -10px;
-    left: 0px;
     width: 100%;
     height: 2px;
-    background: #FFFFFF;
+    background-color: white;
+    transition: background-color .3s, opacity .3s, transform .5s;
+    will-change: transform;
 }
 
-.burger_line::after {
-    top: 10px;
+.burger_menu_btn span:nth-child(1) {
+    transform: translateY(-10px);
+}
+
+.burger_menu_btn span:nth-child(2) {}
+
+.burger_menu_btn span:nth-child(3) {
+    transform: translateY(10px);
+}
+
+.burger_menu_btn:hover span {
+    background-color: #9e9e9e;
+    transition: background-color .3s ease;
+}
+
+.open .burger_menu_btn span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+}
+
+.open .burger_menu_btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.open .burger_menu_btn span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.open .nav {
+    transform: translateX(-100%);
+    visibility: visible;
 }
 
 .slider_left_arrow,
@@ -999,11 +1019,34 @@ h4 {
     }
 
     .nav {
-        display: none;
+        position: absolute;
+        right: -332px;
+        top: 0;
+        height: 570px;
+        max-width: 332px;
+        padding-top: 100px;
+        text-align: center;
+        background-color: #0C0C0E;
+        margin-right: 0px;
+        visibility: hidden;
+        transition: transform .3s, visibility .3s;
+    }
+
+    .nav .nav-list {
+        display: block;
+        margin: 0;
+    }
+
+    .nav .nav-item {
+        margin-bottom: 30px;
     }
 
     .burger_menu_btn {
         display: block;
+    }
+
+    .profile {
+        z-index: 2;
     }
 
     .slider_images {
