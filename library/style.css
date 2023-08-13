@@ -20,9 +20,9 @@
     box-sizing: border-box;
 }
 
-html::-webkit-scrollbar {
+/* html::-webkit-scrollbar {
     width: 0px;
-}
+} */
 
 
 html {
@@ -980,11 +980,6 @@ h4 {
 .slider_right_arrow {
     right: -82px;
     bottom: 262px;
-}
-
-.slider_left_arrow,
-.slider_right_arrow {
-    display: block;
 }
 
 @media screen and (max-width: 1279px) {
