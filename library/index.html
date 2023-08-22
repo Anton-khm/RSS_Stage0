@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="/library/swiper-bundle.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" /> -->
     <link rel="icon" href="./assets/svg/favicon.ico">
 </head>
 
@@ -44,28 +46,24 @@
                     <p class="section-subtitle">The Brooklyn Library is a free workspace, a large number of books and a
                         cozy
                         coffee shop inside </p>
-                    <div class="section-slider">
-                        <div class="slider_images">
-                            <button class="slider_left_arrow"></button>
-                            <div id="slide-1">
-                                <img src="./assets/img/image_1.png" alt="Woman choosing a book">
+                    <div class="swiper">
+                        <div id="wrapper" class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./assets/img/image_1.png" alt="Woman choosing a book">
                             </div>
-                            <div id="slide-2">
-                                <img src="./assets/img/image_2.png" alt="Sculptures in the library">
+                            <div class="swiper-slide"><img src="./assets/img/image_2.png"
+                                    alt="Sculptures in the library">
                             </div>
-                            <div id="slide-3">
-                                <img src="./assets/img/image_3.png" alt="Large bookcase">
-                            </div>
-                            <button class="slider_right_arrow"></button>
+                            <div class="swiper-slide"><img src="./assets/img/image_3.png" alt="Large bookcase"></div>
+                            <div class="swiper-slide"><img src="./assets/img/image_4.png" alt="Big staircase"></div>
+                            <div class="swiper-slide"><img src="./assets/img/image_5.png" alt="Big museum"></div>
                         </div>
-                        <div class="slider_buttons">
-                            <a href="#slide-1"></a>
-                            <a href="#slide-2"></a>
-                            <a href="#slide-3"></a>
-                            <a href="#slide-4"></a>
-                            <a href="#slide-5"></a>
-                        </div>
+
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
+
                 </section>
                 <section class="section section-favorites" id="favorites">
                     <div class="section-favorites-title">
@@ -480,6 +478,8 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./index.js"></script>
 </body>
 

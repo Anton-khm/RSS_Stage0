@@ -200,36 +200,70 @@ h1 {
     margin-top: 61px;
 }
 
-.section-slider {
+.swiper {
     display: flex;
     width: 100%;
     flex-direction: column;
     padding: 0px 20px;
     text-align: center;
-    overflow: hidden;
 }
 
 .slider_images {
     position: relative;
+}
+
+.swiper-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    row-gap: 20px;
+    /* white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    scroll-behavior: smooth; */
 }
 
-.slider_buttons {
-    margin-top: 16px;
+.swiper-wrapper div {
+    width: 450px;
+    height: 560px;
+    /* margin-left: 25px; */
 }
 
-.slider_buttons a {
+.carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging div {
+    pointer-events: none;
+}
+
+.carousel div:first-child {
+    margin-left: 0px;
+}
+
+/* .carousel img {
+     object-fit: cover;
+    margin-left: 14px; 
+    width: 100%;
+} 
+
+/* .carousel img:first-child {
+    margin-left: 0px;
+} */
+
+.swiper .swiper-pagination {
     position: relative;
-    display: inline-flex;
-    width: 16px;
-    height: 16px;
-    margin: 0 2px;
-    background: #BB945F;
-    border-radius: 50%;
+    margin-top: 41px;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+    width: 26px;
+    height: 26px;
+    background-color: #0C0C0E;
+    opacity: 1;
+    border: 5px solid #FFF;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #BB945F;
 }
 
 .slider_buttons a::after {
@@ -246,13 +280,17 @@ h1 {
     top: 1px;
 }
 
-.slider_buttons>a:focus {
+/* .slider_buttons>a:focus {
     background: #000;
-}
+} */
 
-.slider_buttons a:nth-child(n+2) {
+/* .slider_buttons a:nth-child(n+2) {
     background: #0C0C0E;
-}
+}*/
+
+/* .slider_images {
+    overflow: hidden;
+} */
 
 .slider_buttons a:nth-child(n+4) {
     display: none;
@@ -291,6 +329,15 @@ fieldset {
 .selection-title {
     padding: 0;
     font-weight: bold;
+}
+
+.section-favorites-radiobuttons {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin: left 17px;
+    max-width: 100%;
+    gap: 12%
 }
 
 .section-favorites-radiobuttons:first-of-type {
@@ -952,8 +999,8 @@ h4 {
     visibility: visible;
 }
 
-.slider_left_arrow,
-.slider_right_arrow {
+.swiper-button-prev,
+.swiper-button-next {
     display: none;
     position: absolute;
     width: 24px;
@@ -964,20 +1011,20 @@ h4 {
     cursor: pointer;
 }
 
-.slider_left_arrow {
+.swiper-button-prev {
     background-image: url(./assets/svg/Carret_Left.svg);
 }
 
-.slider_right_arrow {
+.swiper-button-next {
     background-image: url(./assets/svg/Carret_Right.svg);
 }
 
-.slider_left_arrow {
+.swiper-button-prev {
     left: -82px;
     bottom: 262px;
 }
 
-.slider_right_arrow {
+.swiper-button-next {
     right: -82px;
     bottom: 262px;
 }
@@ -1005,6 +1052,24 @@ h4 {
 
     .slider_images {
         justify-content: space-around;
+    }
+
+    .swiper-button-next::after {
+        /* content: ''; */
+        position: absolute;
+        top: -15px;
+        left: -63px;
+        width: 24px;
+        height: 24px;
+        background: url(./assets/svg/Carret_Right.svg) 0 0 no-repeat;
+    }
+}
+
+@media screen and (max-width: 1399px) {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: block;
     }
 }
 
@@ -1045,16 +1110,21 @@ h4 {
     }
 
     .slider_images {
-        max-width: 580px;
+        max-width: 450px;
         align-self: center;
     }
 
-    .slider_images>div:nth-child(n+3) {
-        display: none;
+    /* .carousel img {
+        object-fit: cover;
+        width: 100%;
     }
 
-    .slider_left_arrow,
-    .slider_right_arrow {
+    .carousel img:nth-child(n+2) {
+        display: none;
+    } */
+
+    .swiper-button-prev,
+    .swiper-button-next {
         display: block;
     }
 
@@ -1120,6 +1190,20 @@ h4 {
     .footer-container {
         row-gap: 40px;
     }
+}
+
+.slider_images .slide {
+    /* clip-path: circle(0% at 0 50%) */
+}
+
+.slide.active {
+    /* clip-path: circle(150% at 0 50%); */
+    transition: .5s;
+    /* transition-property: clip-path; */
+}
+
+.btn.active {
+    background: #BB945F;
 }
 
 /* * {
