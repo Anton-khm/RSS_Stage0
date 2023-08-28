@@ -21,9 +21,37 @@ const swiper = new Swiper(".swiper", {
 
 console.log('Score: 50 / 50\n1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12')
 
+
+//Login_modal
+const profileIcon = document.querySelector('.profile')
+const loginMenu = document.querySelector('.login_menu')
+const loginMenuOpened = document.querySelector('.login_menu.opened')
+
+//login menu
+
+profileIcon.addEventListener('click', () => {
+    loginMenu.classList.toggle('opened');
+    document.querySelector(".header").classList.remove("open")
+})
+
+profileIcon.addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+
+loginMenuOpened.addEventListener('click', event => {
+    event._isClickWithInMenu = true;
+});
+
+document.body.addEventListener('click', event => {
+    if (event._isClickWithInMenu) return;
+    // Действие при клике
+    loginMenu.classList.remove('opened')
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("burger").addEventListener("click", function () {
         document.querySelector(".header").classList.toggle("open")
+        loginMenu.classList.remove('opened')
     })
 })
 
@@ -37,7 +65,9 @@ menuItems.forEach((item) => {
 })
 
 document.body.addEventListener('click', event => {
-    if (event._isClick) { document.querySelector(".header").classList.remove("open") }
+    if (event._isClick) {
+        document.querySelector(".header").classList.remove("open");
+    }
 });
 
 //Closing menu when clicking outside it
@@ -53,102 +83,50 @@ document.body.addEventListener('click', event => {
     document.querySelector(".header").classList.remove("open")
 });
 
-//Slider
-const carousel = document.querySelector(".carousel")
-const firstDiv = carousel.querySelectorAll("div")[0]
-const arrowIcons = document.querySelectorAll(".slider_images button")
 
-let isDragStart = false, prevPageX, prevScrollLeft;
-let firstDivWidth = firstDiv.clientWidth + 25;
+//Favorites
+const radioBox = document.querySelector('.section-favorites-radiobuttons')
+radioBox.addEventListener('click', toggleTabs)
 
-arrowIcons.forEach(icon => {
-    icon.addEventListener("click", () => {
-        carousel.scrollLeft += icon.id == "left" ? -firstDivWidth : firstDivWidth;
-    })
-})
+function toggleTabs(event) {
 
-const dragStart = (e) => {
-    isDragStart = true;
-    prevPageX = e.pageX;
-    prevScrollLeft = carousel.scrollLeft;
+    const radioButtonsArr = Array.from(radioBox.querySelectorAll('.radio'));
+    const selectedButton = event.target.closest('.radio');
+    const index = radioButtonsArr.indexOf(selectedButton);
+
+    const seasons = document.querySelectorAll('.favorites-cards');
+    let activeSeason = document.querySelector('.active');
+    let selectedSeason = seasons[index]
+
+    if (activeSeason !== selectedSeason & index >= 0) {
+        //     fade out
+        activeSeason.classList.add('animated');
+
+        seasons.forEach((season) => {
+            season.classList.remove('selected')
+        });
+        selectedSeason.classList.toggle('selected');
+    }
+
+    //fade in
+    fadeOutTiming = setTimeout(() => {
+        activeSeason.classList.remove('animated');
+        seasons.forEach((season) => {
+            season.classList.remove('selected')
+        });
+        selectedSeason.classList.add('selected', 'animated');
+
+        seasons.forEach((season) => {
+            season.classList.remove('active')
+        });
+    }, 400)
+
+    fadeInTiming = setTimeout(() => {
+        seasons.forEach((season) => {
+            season.classList.remove('selected', 'animated')
+        });
+        activeSeason = selectedSeason;
+        activeSeason.classList.add('active');
+    }, 400)
 }
-
-const dragging = (e) => {
-    if (!isDragStart) return;
-    e.preventDefault();
-    // carousel.classList.add("dragging");
-    let positionDiff = e.pageX - prevPageX;
-    carousel.scrollLeft = prevScrollLeft - positionDiff;
-}
-
-const dragStop = () => {
-    isDragStart = false;
-    // carousel.classList.remove("dragging");
-}
-
-carousel.addEventListener("mousedown", dragStart)
-carousel.addEventListener("mousemove", dragging)
-carousel.addEventListener("mouseup", dragStop)
-
-
-
-
-
-let slides = document.querySelectorAll('.slide');
-let btns = document.querySelectorAll('.btn');
-
-let currentSlide = 0;
-
-
-let manualNav = function (manual) {
-    if (manual >= slides.length) { manual = 0; }
-    if (manual < 0) { manual = slides.length - 1; }
-
-    slides.forEach((slide) => {
-        slide.classList.remove('active');
-
-        btns.forEach((btn) => {
-            btn.classList.remove('active');
-        })
-    })
-
-    // slides[currentSlide].classList.add('active');
-    // btns[currentSlide].classList.add('active');
-    slides[manual].classList.add("active");
-    btns[manual].classList.add("active");
-
-    currentSlide = manual;
-}
-
-btns.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-        if (currentSlide !== i) {
-            manualNav(i);
-            // currentSlide = i;
-            carousel.scrollLeft += currentSlide < i ? -firstDivWidth : firstDivWidth;
-        }
-    })
-})
-
-
-// function changeSlide(moveTo) {
-//     if (moveTo >= slides.length) { moveTo = 0; }
-//     if (moveTo < 0) { moveTo = slides.length - 1; }
-
-//     slides[currentSlide].classList.toggle("active");
-//     btns[currentSlide].classList.toggle("active");
-//     slides[moveTo].classList.toggle("active");
-//     btns[moveTo].classList.toggle("active");
-
-//     currentSlide = moveTo;
-// }
-
-// btns.forEach((bullet, bulletIndex) => {
-//     bullet.addEventListener('click', () => {
-//         if (currentSlide !== bulletIndex) {
-//             changeSlide(bulletIndex);
-//             carousel.scrollLeft += btn.id == "left" ? -firstDivWidth : firstDivWidth;
-//         }
-//     })
-// })
 

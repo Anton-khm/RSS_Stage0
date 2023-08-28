@@ -47,12 +47,14 @@ html {
 }
 
 .body_wrapper {
-    overflow: hidden;
+    contain: paint;
     width: 100%;
     position: relative;
 }
 
-.header {}
+.header {
+    position: relative;
+}
 
 .container {
     max-width: 1440px;
@@ -111,6 +113,7 @@ h1 {
 }
 
 .profile {
+    position: relative;
     width: 28px;
     height: 28px;
     background-image: url(./assets/svg/icon_profile.svg);
@@ -118,9 +121,68 @@ h1 {
     background-repeat: no-repeat;
 }
 
-.profile:hover {
+/* .profile:hover {
+    /* transition: 0.5s;
+    opacity: 0.5;
+} */
+*/ .profile:active {
+    transition: 0.1s;
+    opacity: 1;
+}
+
+/* .profile:focus {
     transition: 0.5s;
     opacity: 0.5;
+}
+
+.profile:target {
+    transition: 0.5s;
+    opacity: 0.5;
+} */
+
+.login_menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 115px;
+    top: 35px;
+    right: 0px;
+    background-color: #FFF;
+    color: #000;
+    font-size: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    cursor: auto;
+}
+
+.login_menu_title {
+    position: relative;
+}
+
+.login_menu_title::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    top: 32px;
+    left: 5px;
+    width: 40px;
+    background: #BB945F;
+}
+
+.login_menu span {
+    line-height: 20px;
+}
+
+.login {
+    margin-bottom: 10px;
+}
+
+.login_menu.opened {
+    opacity: 1;
+    visibility: visible;
 }
 
 .main-container {
@@ -331,15 +393,6 @@ fieldset {
     font-weight: bold;
 }
 
-.section-favorites-radiobuttons {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    margin: left 17px;
-    max-width: 100%;
-    gap: 12%
-}
-
 .section-favorites-radiobuttons:first-of-type {
     display: flex;
     margin-top: 24px;
@@ -413,9 +466,31 @@ input:checked~label {
 }
 
 .favorites-cards {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     margin: 31px 60px 0px 20px;
+}
+
+.favorites-cards.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.favorites-cards.active.animated {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.selected {
+    display: flex;
+    opacity: 0;
+    visibility: visible;
+}
+
+.selected.animated {
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
 
 .card-wrapper {
@@ -515,9 +590,9 @@ input:checked~label {
     background: #ffffff;
 }
 
-.favorites-cards>.card-wrapper:nth-child(n+5) {
+/* .favorites-cards>.card-wrapper:nth-child(n+5) {
     display: none;
-}
+} */
 
 .section-coffeeshop {
     display: flex;
@@ -997,6 +1072,8 @@ h4 {
 .open .nav {
     transform: translateX(-100%);
     visibility: visible;
+    /* opacity: 1;
+    transition: transform .3s, visibility .3s, opacity .3s; */
 }
 
 .swiper-button-prev,
@@ -1042,7 +1119,6 @@ h4 {
     .card-wrapper:nth-child(n+2) {
         margin-bottom: 40px;
     }
-
 }
 
 @media screen and (max-width: 1420px) {
@@ -1089,7 +1165,8 @@ h4 {
         background-color: #0C0C0E;
         margin-right: 0px;
         visibility: hidden;
-        transition: transform .3s, visibility .3s;
+        /* opacity: 0;*/
+        transition: transform .3s, visibility .3s, opacity .3s;
     }
 
     .nav .nav-list {
@@ -1112,6 +1189,17 @@ h4 {
     .slider_images {
         max-width: 450px;
         align-self: center;
+    }
+
+    .favorites-selection {
+        position: sticky;
+        top: -65px;
+        z-index: 1;
+    }
+
+    .section-favorites-radiobuttons {
+        background: #b8b8b8;
+        opacity: 0.8;
     }
 
     /* .carousel img {
