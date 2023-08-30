@@ -112,20 +112,25 @@ h1 {
     transition: color 0.5s;
 }
 
-.profile {
+.profile_wrapper {
     position: relative;
+}
+
+.profile {
     width: 28px;
     height: 28px;
     background-image: url(./assets/svg/icon_profile.svg);
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
-/* .profile:hover {
-    /* transition: 0.5s;
+.profile:hover {
+    transition: 0.5s;
     opacity: 0.5;
-} */
-*/ .profile:active {
+}
+
+.profile:active {
     transition: 0.1s;
     opacity: 1;
 }
@@ -155,29 +160,32 @@ h1 {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
-    cursor: auto;
+    /* cursor: auto; */
 }
 
 .login_menu_title {
     position: relative;
+    line-height: 30px;
 }
 
 .login_menu_title::after {
     content: '';
     position: absolute;
     height: 1px;
-    top: 32px;
-    left: 5px;
+    top: 29px;
+    left: 4px;
     width: 40px;
     background: #BB945F;
 }
 
-.login_menu span {
+.login_menu a {
     line-height: 20px;
+    color: #000000;
 }
 
-.login {
+.login_link {
     margin-bottom: 10px;
+    margin-top: 15px;
 }
 
 .login_menu.opened {
@@ -904,6 +912,11 @@ h4 {
     margin-top: 14px;
 }
 
+.buttons-wrapper a {
+    display: flex;
+    text-decoration: none;
+}
+
 .signup-btn,
 .login-btn {
     position: static;
@@ -1104,6 +1117,137 @@ h4 {
 .swiper-button-next {
     right: -82px;
     bottom: 262px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay .cancel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.popup1 {
+    margin: 150px auto;
+    padding: 20px 25px;
+    background: #fff;
+    border: 1px solid #666;
+    width: 250px;
+    height: 262px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 14px;
+    right: 13px;
+    transition: all 200ms;
+    text-decoration: none;
+    color: #0C0C0E;
+    background-image: url(./assets/svg/close_btn.svg);
+    background-size: contain;
+    transition: opacity .3s ease-out;
+}
+
+.close:hover {
+    opacity: 0.5;
+}
+
+.email_title,
+.password_title,
+.first_name_title,
+.last_name_title {
+    width: 100%;
+    text-transform: none;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+}
+
+.auth_form_title {
+    text-align: center;
+}
+
+.auth_form_title .section-title::after {
+    content: none;
+}
+
+.auth_login_title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.auth_form_body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.auth_form_row {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.auth_form_row input {
+    margin-top: 10px;
+    outline: none;
+    border: 1px #BB945F solid;
+}
+
+.auth_button {
+    position: static;
+    margin-top: 10px
+}
+
+.auth-form_description {
+    display: flex;
+    margin-top: 12px
+}
+
+.auth_no_account {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: 0px;
+}
+
+.auth-form_link {
+    margin: 0;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 10px;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    color: #0C0C0E;
+}
+
+.popup2 {
+    height: 382px;
 }
 
 @media screen and (max-width: 1279px) {

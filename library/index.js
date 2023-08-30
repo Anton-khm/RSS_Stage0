@@ -25,10 +25,8 @@ console.log('Score: 50 / 50\n1.Вёрстка соответствует мак�
 //Login_modal
 const profileIcon = document.querySelector('.profile')
 const loginMenu = document.querySelector('.login_menu')
-const loginMenuOpened = document.querySelector('.login_menu.opened')
 
-//login menu
-
+//open/close Login_modal
 profileIcon.addEventListener('click', () => {
     loginMenu.classList.toggle('opened');
     document.querySelector(".header").classList.remove("open")
@@ -38,16 +36,17 @@ profileIcon.addEventListener('click', event => {
     event._isClickWithInMenu = true;
 });
 
-loginMenuOpened.addEventListener('click', event => {
+loginMenu.addEventListener('click', event => {
     event._isClickWithInMenu = true;
 });
 
 document.body.addEventListener('click', event => {
     if (event._isClickWithInMenu) return;
-    // Действие при клике
     loginMenu.classList.remove('opened')
 });
 
+
+//Burger
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("burger").addEventListener("click", function () {
         document.querySelector(".header").classList.toggle("open")
