@@ -27,11 +27,13 @@
                     </ul>
                 </nav>
                 <div class="profile_wrapper">
-                    <div class="profile"></div>
+                    <div class="profile" id="profile"></div>
                     <div class="login_menu no_auth">
                         <h4 class="login_menu_title">Profile</h4>
-                        <a href="#login" class="login_link nav-link"><span>Log In</span></a>
+                        <a href="#login" class="login_link nav-link" data-toggle-id="login"><span>Log In</span></a>
                         <a href="#register" class="register_link nav-link"><span>Register</span></a>
+                        <a href="#myprofile" class="myprofile_link nav-link"><span>My profile</span></a>
+                        <a href="#logout" class="logout_link nav-link"><span>Log Out</span></a>
                     </div>
                 </div>
 
@@ -119,7 +121,7 @@
                                     light Sapphic romance, and a strong, complex protagonist. Not for the faint of
                                     heart.
                                 </p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book.png" alt="The book eaters" class="card-image">
                             </div>
                             <div class="card-2 card-wrapper">
@@ -131,7 +133,7 @@
                                     further than here - where a woman recovering from a breakup moves to a quaint town
                                     in
                                     upstate New York and befriends a beautiful witch.</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_1.png" alt="Cackle" class="card-image">
                             </div>
                             <div class="card-3 card-wrapper">
@@ -146,7 +148,7 @@
                                     his drama of soul into something of divine significance—an inspired introduction to
                                     Dante's
                                     main themes.</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_2.png" alt="Dante:Poet of the secular world"
                                     class="card-image">
                             </div>
@@ -159,7 +161,7 @@
                                     family) exploring how the Windsors have evolved and thrived as the modern world has
                                     changed
                                     around them.</p>
-                                <button disabled class="btn-action own-disabled">Own</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_3.png" alt="The last queen" class="card-image">
                             </div>
                         </div>
@@ -172,7 +174,7 @@
                                 <p class="card-description">Powerful novel that takes you back to a nostalgic time,
                                     exploring
                                     both the beauty and danger and loss of innocence that is youth.</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_4.png" alt="The body by Stephen King" class="card-image">
                             </div>
                             <div class="card-6 card-wrapper">
@@ -186,7 +188,7 @@
                                     both expansive and intimate, resulting in a lyrical indictment of the way things
                                     are.
                                 </p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_5.png" alt="Carry: a memoir of survival" class="card-image">
                             </div>
                             <div class="card-7 card-wrapper">
@@ -200,7 +202,7 @@
                                     a journal of displacement and belonging, all in one form-defying package of spare
                                     prose.
                                 </p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_6.png" alt="Days of distraction" class="card-image">
                             </div>
                             <div class="card-8 card-wrapper">
@@ -214,7 +216,7 @@
                                     age with the promise to bring her to America. Her marriage is an opportunity for her
                                     family
                                     to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
-                                <button disabled class="btn-action own-disabled">Own</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_7.png" alt="Dominicana by Angie Cruz" class="card-image">
                             </div>
                         </div>
@@ -229,7 +231,7 @@
                                     struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco
                                     company
                                     for damage their oil fields did to the Amazon and her people</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_8.png" alt="Crude: A Memoir" class="card-image">
                             </div>
                             <div class="card-10 card-wrapper">
@@ -245,7 +247,7 @@
                                     10
                                     More
                                     Years of Business Unusual.</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_9.png" alt="Let my people go surfing" class="card-image">
                             </div>
                             <div class="card-11 card-wrapper">
@@ -259,7 +261,7 @@
                                     sexism,
                                     and
                                     divisive politics.</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_10.png" alt="The octopus museum: poems" class="card-image">
                             </div>
                             <div class="card-12 card-wrapper">
@@ -274,7 +276,7 @@
                                     an erotic tale of villains and dreamers, queens and revolutionaries, lepers and
                                     healers.
                                 </p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_11.png" alt="Shark dialogues: a novel" class="card-image">
                             </div>
                         </div>
@@ -291,7 +293,7 @@
                                     what we
                                     don't, examining the possibilities around how we construct and communicate identity.
                                 </p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_12.png" alt="Casual conversation: by Renia White"
                                     class="card-image">
                             </div>
@@ -305,7 +307,7 @@
                                     officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort
                                     that
                                     saved a quarter of a million refugees from the Armenian Genocide</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_13.png" alt="The Great Fire: By Lou Ureneck"
                                     class="card-image">
                             </div>
@@ -321,7 +323,7 @@
                                     of
                                     one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
                                 </p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_14.png" alt="Rickey: The Life and Legend"
                                     class="card-image">
                             </div>
@@ -336,7 +338,7 @@
                                     gods
                                     from
                                     their wounds.</p>
-                                <button class="btn-action">Buy</button>
+                                <button class="btn-action" data-toggle-id="login">Buy</button>
                                 <img src="./assets/img/book_15.png" alt="Slug: and other stories" class="card-image">
                             </div>
                         </div>
@@ -543,7 +545,7 @@
                             required="required" minlength="8">
                     </div>
                     <div class="auth_form_row">
-                        <button type="submit" class="auth_button btn-action">Log In</button>
+                        <button type="submit" class="auth_button btn-action" id="loginBtn">Log In</button>
                     </div>
                     <div class="auth-form_description">
                         <p class="auth_no_account">Don't have an account?</p>
@@ -554,41 +556,83 @@
         </div>
     </div>
     <div role="dialog" class="register register_open overlay" id="register">
-        <a class="cancel" href="#"></a>
+        <a class="cancel" href="#" id="closeRegForm"></a>
         <div class="auth_form popup1 popup2">
             <div class="auth_form_title">
                 <h4 class="section-title auth_login_title">Register</h4>
                 <a class="close" href="#"></a>
             </div>
             <div class="auth_form_body">
-                <form>
+                <form id="registerForm" onsubmit="closeSelf()">
                     <div class="auth_form_row">
                         <label for="first_name" class="first_name_title card-description">First name</label>
-                        <input type="text" id="first_name_field" name="first_name" class="auth_first_name"
+                        <input type="text" id="first_name" name="first_name" class="auth_first_name"
                             required="required">
                     </div>
                     <div class="auth_form_row">
                         <label for="last_name" class="last_name_title card-description">Last name</label>
-                        <input type="text" id="last_name_field" name="last_name" class="auth_last_name"
-                            required="required">
+                        <input type="text" id="last_name" name="last_name" class="auth_last_name" required="required">
                     </div>
                     <div class="auth_form_row">
                         <label for="email" class="email_title card-description">E-mail</label>
-                        <input type="email" id="email_field" name="email" class="auth_email" required="required">
+                        <input type="email" id="email" name="email" class="auth_email" required="required">
                     </div>
                     <div class="auth_form_row">
                         <label for="password" class="password_title card-description">Password</label>
-                        <input type="password" id="password_field" name="password" class="auth_password"
-                            required="required" minlength="8">
+                        <input type="password" id="password" name="password" class="auth_password" required="required"
+                            minlength="8">
                     </div>
                     <div class="auth_form_row">
-                        <button type="submit" class="auth_button btn-action">Sign Up</button>
+                        <button type="submit" class="auth_button btn-action" id="registerBtn" value="send">Sign
+                            Up</button>
                     </div>
                     <div class="auth-form_description">
                         <p class="auth_no_account">Already have an account?</p>
                         <a href="#login" class="auth-form_link nav-link">Login</a>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" class="myprofile myprofile_open overlay" id="myprofile">
+        <a class="cancel" href="#" id="closeMyProfileModal"></a>
+        <div class="myprofile_modal_wrapper popup1">
+            <div class="left_section">
+                <div class="user_profile_initials">
+                    <div class="shortcut"></div>
+                    <div class="initials">Ant Khm</div>
+                </div>
+            </div>
+            <div class="right_section">
+                <div class="auth_form_title">
+                    <h4 class="section-title auth_login_title">My Profile</h4>
+                    <a class="close" href="#"></a>
+                </div>
+                <div class="user_stats">
+                    <div>
+                        <h5>Visits</h5>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <h5>Bonuses</h5>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <h5>Books</h5>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+                <div>
+                    <h4>Rented books</h4>
+                    <div></div>
+                </div>
+                <div class="auth-form_description">
+                    <p class="auth_no_account">Card number</p>
+                    <a href="#login" class="auth-form_link nav-link">F00234030</a>
+                </div>
             </div>
         </div>
     </div>
