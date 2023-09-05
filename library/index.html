@@ -598,40 +598,43 @@
         <a class="cancel" href="#" id="closeMyProfileModal"></a>
         <div class="myprofile_modal_wrapper popup1">
             <div class="left_section">
-                <div class="user_profile_initials">
+                <div class="myprofile_initials">
                     <div class="shortcut"></div>
                     <div class="initials">Ant Khm</div>
                 </div>
             </div>
             <div class="right_section">
-                <div class="auth_form_title">
-                    <h4 class="section-title auth_login_title">My Profile</h4>
+                <div class="auth_form_title myprofile_modal_title">
+                    <h4 class="section-title auth_login_title myprofile_title">My Profile</h4>
                     <a class="close" href="#"></a>
                 </div>
-                <div class="user_stats">
-                    <div>
-                        <h5>Visits</h5>
-                        <div></div>
-                        <div></div>
+                <div class="stats_block_wrapper">
+                    <div class="stats_block">
+                        <h5 class="stats_type card-description">Visits</h5>
+                        <div class="stats_icon stats_visits"></div>
+                        <div class="stats_number"></div>
                     </div>
-                    <div>
-                        <h5>Bonuses</h5>
-                        <div></div>
-                        <div></div>
+                    <div class="stats_block">
+                        <h5 class="stats_type card-description">Bonuses</h5>
+                        <div class="stats_icon stats_bonuses"></div>
+                        <div class="stats_number"></div>
                     </div>
-                    <div>
-                        <h5>Books</h5>
-                        <div></div>
-                        <div></div>
+                    <div class="stats_block">
+                        <h5 class="stats_type card-description">Books</h5>
+                        <div class="stats_icon stats_books"></div>
+                        <div class="stats_number"></div>
                     </div>
                 </div>
-                <div>
-                    <h4>Rented books</h4>
-                    <div></div>
+                <div class="rented_block_wrapper">
+                    <h4 class="rented_title stats_type">Rented books</h4>
+                    <div class="rented_books_list"></div>
                 </div>
-                <div class="auth-form_description">
-                    <p class="auth_no_account">Card number</p>
-                    <a href="#login" class="auth-form_link nav-link">F00234030</a>
+                <div class="card_number_wrapper">
+                    <p class="stats_type card_number_title">Card number</p>
+                    <p class="stats_type card_number_number">F00234030</p>
+                    <div class="copy_wrapper">
+                        <button class="copy_book btn-action"></button>
+                    </div>
                 </div>
             </div>
         </div>
