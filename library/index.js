@@ -23,14 +23,15 @@ console.log('Score: 50 / 50\n1.Вёрстка соответствует мак�
 
 
 //Login_modal
-const profileIcon = document.querySelector('.profile')
-const loginMenu = document.querySelector('.login_menu')
+const profileIcon = document.querySelector('.profile');
+const loginMenu = document.querySelector('.login_menu');
+const profileTitle = document.querySelector(".login_menu_title");
 
 //open/close Login_modal
 profileIcon.addEventListener('click', () => {
     loginMenu.classList.toggle('opened');
-    document.querySelector(".header").classList.remove("open")
-})
+    document.querySelector(".header").classList.remove("open");
+});
 
 profileIcon.addEventListener('click', event => {
     event._isClickWithInMenu = true;
@@ -42,20 +43,20 @@ loginMenu.addEventListener('click', event => {
 
 document.body.addEventListener('click', event => {
     if (event._isClickWithInMenu) return;
-    loginMenu.classList.remove('opened')
+    loginMenu.classList.remove('opened');
 });
 
 
 //Burger
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("burger").addEventListener("click", function () {
-        document.querySelector(".header").classList.toggle("open")
-        loginMenu.classList.remove('opened')
-    })
-})
+        document.querySelector(".header").classList.toggle("open");
+        loginMenu.classList.remove('opened');
+    });
+});
 
 //Closing Burger menu items after clicking on them
-const menuItems = document.querySelectorAll(".nav-item")
+const menuItems = document.querySelectorAll(".nav-item");
 
 menuItems.forEach((item) => {
     item.addEventListener("click", event => {
@@ -129,7 +130,6 @@ function toggleTabs(event) {
     }, 400)
 }
 
-
 //Register functionality
 
 window.onload = function () {
@@ -145,93 +145,222 @@ window.onload = function () {
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
 
+            //generate random card number
+            const randomNumber = Math.floor(Math.random() * Math.pow(10, 10));
+            const hex = randomNumber.toString(16);
+
             // Save fields in localStorage.
             localStorage.setItem('firstName', firstName);
             localStorage.setItem('lastName', lastName);
             localStorage.setItem('email', email);
             localStorage.setItem('password', password);
             localStorage.setItem('isRegistered', true);
-
-            //generate random card number
-            const randomNumber = Math.floor(Math.random() * Math.pow(10, 10));
-            const hex = randomNumber.toString(16);
+            localStorage.setItem('isAuthorized', true);
             localStorage.setItem('cardNumber', hex);
 
+            // Close modal after success submit
             document.getElementById('register').classList.toggle('.overlay .cancel');
         });
     }
 }
 
+
 // Changing Profile Icon with First Letters
-if (localStorage.getItem('isRegistered') !== null && localStorage.getItem('firstName') !== null && localStorage.getItem('lastName') !== null) {
-    let registered = localStorage.getItem('isRegistered');
-    let firstName = localStorage.getItem('firstName');
-    let lastName = localStorage.getItem('lastName');
+function changeProfileIcon(block) {
 
-    let firstChar = firstName.toUpperCase().charAt(0);
-    let lastChar = lastName.toUpperCase().charAt(0);
-    let initials = firstChar + lastChar;
+    if (localStorage.getItem('isRegistered') !== null && localStorage.getItem('firstName') !== null && localStorage.getItem('lastName') !== null) {
+        let registered = localStorage.getItem('isRegistered');
+        let authorized = localStorage.getItem('isAuthorized');
+        let firstName = localStorage.getItem('firstName');
+        let lastName = localStorage.getItem('lastName');
 
-    if (registered === 'true') {
-        profileIcon.classList.add("authorized");
-        profileIcon.innerHTML += initials;
+        let firstChar = firstName.toUpperCase().charAt(0);
+        let lastChar = lastName.toUpperCase().charAt(0);
+        let initials = firstChar + lastChar;
 
-        document.querySelector(".login_link").style.display = 'none';
-        document.querySelector(".register_link").style.display = 'none';
-        document.querySelector(".myprofile_link").style.display = 'flex';
-        document.querySelector(".logout_link").style.display = 'flex';
+        if ((registered === 'true' && authorized === 'true') || authorized === 'true') {
+            block.classList.add("authorized");
+            block.innerHTML = initials;
+
+            //Display new profile menu list
+            document.querySelector(".login_link").style.display = 'none';
+            document.querySelector(".register_link").style.display = 'none';
+            document.querySelector(".myprofile_link").style.display = 'flex';
+            document.querySelector(".logout_link").style.display = 'flex';
+
+            profileIcon.addEventListener("click", () => {
+                const randNumber = localStorage.getItem('cardNumber');
+                profileTitle.innerHTML = randNumber;
+                profileTitle.style.fontSize = '14px';
+            })
+        }
+    }
+    else {
+        console.log('The localStorage keys do NOT exist');
     }
 }
-else {
-    console.log('The localStorage keys do NOT exist');
-}
+
+changeProfileIcon(profileIcon);
+
+
+//Closing form after submit action
+// const closeBtn = document.getElementById("closeRegForm");
 
 function closeSelf() {
     document.getElementById("closeRegForm").click();
 }
 
-
 //Open Login Modal from Buy Card button
-const buyCardBtns = document.querySelectorAll('.favorites-cards .btn-action')
+// const buyCardBtns = document.querySelectorAll('.favorites-cards .btn-action')
 const loginModal = document.querySelector('.popup1')
 const favoritesBooks = document.querySelector('.favorites-cards-wrapper')
 const openLoginModalBtn = document.querySelector('.login_link')
 
-favoritesBooks.onclick = function (event) {
-    let id = event.target.dataset.toggleId;
-    if (!id) return;
+// if ((localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') !== 'true') || localStorage.getItem('isRegistered') !== 'true') {
+//     favoritesBooks.onclick = function (event) {
+//         let id = event.target.dataset.toggleId;
+//         if (!id) return;
 
-    openLoginModal();
+//         openLoginModal();
+//     }
+
+//     function openLoginModal() {
+//         openLoginModalBtn.click();
+//     }
+// } else {
+//     //Changing Profile title with Card Number title
+//     const randNumber = localStorage.getItem('cardNumber');
+//     profileTitle.innerHTML = randNumber;
+//     profileTitle.style.fontSize = '14px';
+// }
+
+// window.onload = function () {
+//     profileIcon.addEventListener("click", () => {
+//         if (localStorage.getItem('isAuthorized') === 'true') {
+//             const randNumber = localStorage.getItem('cardNumber');
+//             profileTitle.innerHTML = randNumber;
+//             profileTitle.style.fontSize = '14px';
+//         } else return;
+//     })
+// }
+
+
+//Adding Icon and Fullname to MyProfile modal
+const myProfileBtn = document.querySelector(".myprofile_link")
+const myProfileDialog = document.getElementById("myprofile");
+
+myProfileBtn.addEventListener("click", () => {
+    const fullNameTitle = document.querySelector(".fullname");
+
+    let firstName = localStorage.getItem('firstName');
+    let lastName = localStorage.getItem('lastName');
+    let fullName = firstName + ' ' + lastName;
+
+    fullNameTitle.innerHTML = String(fullName);
+    if (firstName.length >= 12 || lastName.length >= 12) {
+        fullNameTitle.style.fontSize = '12px';
+    }
+
+    const myProfileImage = document.querySelector(".shortcut");
+    changeProfileIcon(myProfileImage);
+})
+
+//Logout
+const logoutBtn = document.querySelector(".logout_link");
+
+logoutBtn.addEventListener("click", () => {
+    if (localStorage.getItem('isAuthorized') === 'true') {
+        localStorage.setItem('isAuthorized', false);
+    }
+    location.reload();
+})
+
+//Login
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("loginForm").addEventListener('submit', function () {
+        // Get the values of fields.
+
+        if (localStorage.getItem('email') === document.getElementById("email_field").value && localStorage.getItem('password') === document.getElementById("password_field").value) {
+            localStorage.setItem("isAuthorized", true);
+            location.reload();
+            changeProfileIcon(profileIcon);
+        } else {
+            alert('No such user');
+        }
+        // Close modal after success submit
+        // location.reload();
+        // document.getElementById("login").classList.toggle(".overlay.cancel");
+        // changeProfileIcon(profileIcon);
+    });
+})
+
+
+//disabling buyCardButton when inputs empty
+// if (localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') === 'true') {
+//     function buyBook() {
+//         const buyCardForm = document.getElementById("bycardForm");
+//         const buyCardBtn = document.getElementById("bycardBtn");
+//         const buyCardNumber = document.getElementById("card_number");
+//         const expirationCode = document.getElementById("expiration_code");
+//         const expirationCode2 = document.getElementById("expiration_code2");
+//         const cvc = document.getElementById("cvc");
+//         const cardholderName = document.getElementById("cardholder_name");
+//         const postalCode = document.getElementById("postal_code");
+//         const cityTown = document.getElementById("city_town");
+
+//         buyCardForm.oninput = () => {
+//             buyCardBtn.disabled = buyCardNumber.value == '' || expirationCode.value == '' || expirationCode2.value == '' || cvc.value == '' || cardholderName.value == '' || postalCode.value == '' || cityTown.value == '';
+//         }
+//     }
+// }
+
+
+// function closeSelf() {
+//     document.getElementById("closeByCardModal").click();
+// }
+
+// const buyCardModal = document.getElementById("bycard");
+const buyCardBtns = document.querySelectorAll('.favorites-cards .btn-action');
+
+buyCardBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') === 'true') {
+            document.getElementById('bycard').style.display = 'block';
+
+            const buyCardForm = document.getElementById("bycardForm");
+            const buyCardBtn = document.getElementById("bycardBtn");
+            const buyCardNumber = document.getElementById("card_number");
+            const expirationCode = document.getElementById("expiration_code");
+            const expirationCode2 = document.getElementById("expiration_code2");
+            const cvc = document.getElementById("cvc");
+            const cardholderName = document.getElementById("cardholder_name");
+            const postalCode = document.getElementById("postal_code");
+            const cityTown = document.getElementById("city_town");
+
+            buyCardForm.oninput = () => {
+                buyCardBtn.disabled = buyCardNumber.value == '' || expirationCode.value == '' || expirationCode2.value == '' || cvc.value == '' || cardholderName.value == '' || postalCode.value == '' || cityTown.value == '';
+            }
+        } else {
+            if ((localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') !== 'true') || localStorage.getItem('isRegistered') !== 'true') {
+                favoritesBooks.onclick = function (event) {
+                    let id = event.target.dataset.toggleId;
+                    if (!id) return;
+
+                    openLoginModal();
+                }
+
+                function openLoginModal() {
+                    openLoginModalBtn.click();
+                }
+            }
+        }
+    })
+});
+
+function hidePopup() {
+    document.getElementById("bycard").style.display = "none";
 }
 
-function openLoginModal() {
-    openLoginModalBtn.click();
-}
-
-// document.body.addEventListener('click', function (event) {
-//     let id = event.target.dataset.toggleId;
-//     if (!id) return;
-
-//     let elem = document.getElementById(id);
-
-//     elem.hidden = !elem.hidden;
-// });
-
-// buyCardBtns.forEach((btn) => {
-// document.addEventListener('click', function (event) {
-//     let id = event.target.dataset.toggleId;
-//     if (!id) return;
-
-//     let elem = document.querySelectorAll(id);
-
-//     elem.hidden = !elem.hidden;
-// });
-// })
-
-
-//     let firstChar = firstName.toUpperCase().charAt(0);
-//     let lastChar = lastName.toUpperCase().charAt(0);
-//     let initials = firstChar + lastChar;
 
 //     if (registered === 'true') {
 

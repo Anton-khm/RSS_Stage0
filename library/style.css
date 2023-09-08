@@ -582,22 +582,22 @@ input:checked~label {
     cursor: pointer;
 }
 
-.btn-action:hover
-
-/* ,
-.btn-action:focus  */
-    {
+.btn-action:hover {
     border-radius: 2px;
     border: 1px solid #BB945F;
     background: #BB945F;
     transition: 0.2s all linear;
 }
 
-/* .btn-action:active {
+.btn-action:disabled {
+    opacity: 0.3;
+    cursor: auto;
+}
+
+.btn-action:disabled:hover {
     background-color: white;
-    color: black;
-    outline: 1px solid black;
-} */
+    border: 1px solid #0C0C0E;
+}
 
 .card-image {
     position: absolute;
@@ -614,10 +614,6 @@ input:checked~label {
 .own-disabled:hover {
     background: #ffffff;
 }
-
-/* .favorites-cards>.card-wrapper:nth-child(n+5) {
-    display: none;
-} */
 
 .section-coffeeshop {
     display: flex;
@@ -1240,7 +1236,7 @@ h4 {
     margin-top: 10px
 }
 
-.auth-form_description {
+.auth_form_have_account {
     display: flex;
     margin-top: 12px
 }
@@ -1287,7 +1283,7 @@ h4 {
     padding: 0px 20px;
 }
 
-.myprofile_initials {
+.myprofile_data {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1295,15 +1291,14 @@ h4 {
 }
 
 .shortcut {
-    display: block;
     width: 80px;
     height: 80px;
     margin-bottom: 15px;
-    color: #BB945F;
-    background-color: #FFF;
+    border-radius: 0px;
+    font-size: 20px;
 }
 
-.initials {
+.fullname {
     width: 140px;
     padding: 5px 10px;
     text-align: center;
@@ -1420,9 +1415,99 @@ h4 {
 }
 
 .copy_wrapper .btn-action:hover {
-
     background: none;
 }
+
+.bycard_wrapper {
+    width: 640px;
+    height: 540px;
+    padding: 0;
+}
+
+.title_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background: #0C0C0E;
+}
+
+.bycard_modal_title {
+    margin: 0;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+.bycard_close {
+    background-image: url(./assets/svg/close_btn2.svg);
+    width: 15px;
+    height: 15px;
+    top: 23px;
+    right: 20px;
+}
+
+.auth_form_wrapper {
+    display: flex;
+}
+
+.bycard_modal_body {
+    width: 43%;
+    padding: 20px 40px 40px;
+}
+
+.split_input {
+    width: 45px;
+    margin-right: 10px;
+}
+
+#bycardForm .auth_form_row:nth-child(1) {
+    margin-top: 0px;
+}
+
+#bycardForm .auth_form_row:nth-child(2) div {
+    display: flex;
+}
+
+#bycardForm .auth_form_row:nth-child(4) {
+    margin-top: 20px;
+}
+
+.auth_form_description {
+    display: flex;
+    padding-top: 30px;
+    width: 52%;
+}
+
+.bycard_description {
+    line-height: 20px;
+    color: #8E8E8E;
+    text-transform: unset;
+}
+
+.bycard {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.blocker {
+    cursor: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: ' ';
+    background: rgba(0, 0, 0, .5);
+}
+
 
 @media screen and (max-width: 1279px) {
     .favorites-cards {
