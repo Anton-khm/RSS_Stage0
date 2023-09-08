@@ -136,6 +136,31 @@ h1 {
     color: rgb(187, 148, 95);
 }
 
+.authorized .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    left: -50px;
+    margin-left: -60px;
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.authorized:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 .profile:hover {
     transition: 0.5s;
     opacity: 0.5;

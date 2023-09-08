@@ -173,6 +173,7 @@ function changeProfileIcon(block) {
         let authorized = localStorage.getItem('isAuthorized');
         let firstName = localStorage.getItem('firstName');
         let lastName = localStorage.getItem('lastName');
+        let fullName = firstName + ' ' + lastName;
 
         let firstChar = firstName.toUpperCase().charAt(0);
         let lastChar = lastName.toUpperCase().charAt(0);
@@ -180,7 +181,13 @@ function changeProfileIcon(block) {
 
         if ((registered === 'true' && authorized === 'true') || authorized === 'true') {
             block.classList.add("authorized");
+            // block.classList.add("tooltiptext");
             block.innerHTML = initials;
+            block_to_insert = document.createElement('span');
+            block_to_insert.innerHTML = fullName;
+            block_to_insert.classList.add("tooltiptext");
+            block.appendChild(block_to_insert);
+
 
             //Display new profile menu list
             document.querySelector(".login_link").style.display = 'none';
