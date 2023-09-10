@@ -183,7 +183,7 @@ window.onload = function () {
             //generate random card number
             const randomNumber = Math.random().toString().slice(2, 11);
             // const hex = randomNumber.toString(16);
-            const hex = ('0' + randomNumber.toString(16).toUpperCase()).slice(-9);
+            const hex = ('00' + randomNumber.toString(16).toUpperCase()).slice(-9);
 
             // Save fields in localStorage.
             localStorage.setItem('firstName', firstName);
@@ -240,7 +240,7 @@ function changeProfileIcon(block) {
             profileIcon.addEventListener("click", () => {
                 const randNumber = localStorage.getItem('cardNumber');
                 profileTitle.innerHTML = randNumber;
-                profileTitle.style.fontSize = '12px';
+                profileTitle.style.fontSize = '13px';
             })
         }
     }
@@ -304,7 +304,6 @@ myProfileBtn.addEventListener("click", () => {
     const bonusesNumber = document.querySelector(".number_bonuses");
     const booksNumber = document.querySelector(".number_books");
     const cardNumber = document.querySelector(".card_number_number");
-    const copyBtn = document.querySelector(".copy_book");
 
     let firstName = localStorage.getItem('firstName');
     let lastName = localStorage.getItem('lastName');
