@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="/library/swiper-bundle.css" rel="stylesheet" type="text/css">
     <link rel="icon" href="./assets/svg/favicon.ico">
 </head>
 
@@ -25,7 +26,17 @@
                         </li>
                     </ul>
                 </nav>
-                <a href="#" class="profile"></a>
+                <div class="profile_wrapper">
+                    <div class="profile" id="profile"></div>
+                    <div class="login_menu no_auth">
+                        <h4 class="login_menu_title">Profile</h4>
+                        <a href="#login" class="login_link nav-link" data-toggle-id="login"><span>Log In</span></a>
+                        <a href="#register" class="register_link nav-link"><span>Register</span></a>
+                        <a href="#myprofile" class="myprofile_link nav-link"><span>My profile</span></a>
+                        <a href="#logout" class="logout_link nav-link"><span>Log Out</span></a>
+                    </div>
+                </div>
+
                 <button class="burger_menu_btn" id="burger">
                     <span></span> <span></span> <span></span>
                 </button>
@@ -44,28 +55,24 @@
                     <p class="section-subtitle">The Brooklyn Library is a free workspace, a large number of books and a
                         cozy
                         coffee shop inside </p>
-                    <div class="section-slider">
-                        <div class="slider_images">
-                            <button class="slider_left_arrow"></button>
-                            <div id="slide-1">
-                                <img src="./assets/img/image_1.png" alt="Woman choosing a book">
+                    <div class="swiper">
+                        <div id="wrapper" class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./assets/img/image_1.png" alt="Woman choosing a book">
                             </div>
-                            <div id="slide-2">
-                                <img src="./assets/img/image_2.png" alt="Sculptures in the library">
+                            <div class="swiper-slide"><img src="./assets/img/image_2.png"
+                                    alt="Sculptures in the library">
                             </div>
-                            <div id="slide-3">
-                                <img src="./assets/img/image_3.png" alt="Large bookcase">
-                            </div>
-                            <button class="slider_right_arrow"></button>
+                            <div class="swiper-slide"><img src="./assets/img/image_3.png" alt="Large bookcase"></div>
+                            <div class="swiper-slide"><img src="./assets/img/image_4.png" alt="Big staircase"></div>
+                            <div class="swiper-slide"><img src="./assets/img/image_5.png" alt="Big museum"></div>
                         </div>
-                        <div class="slider_buttons">
-                            <a href="#slide-1"></a>
-                            <a href="#slide-2"></a>
-                            <a href="#slide-3"></a>
-                            <a href="#slide-4"></a>
-                            <a href="#slide-5"></a>
-                        </div>
+
+                        <div class="swiper-pagination"></div>
+
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
+
                 </section>
                 <section class="section section-favorites" id="favorites">
                     <div class="section-favorites-title">
@@ -102,203 +109,238 @@
                             </div>
                         </fieldset>
                     </form>
-                    <div class="favorites-cards">
-                        <div class="card-1 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">THE BOOK EATERS <br> By Sunyi Dean</h3>
-                            <p class="card-description">An unusual sci-fi story about a book eater woman who tries
-                                desperately to save her dangerous
-                                mind-eater son from tradition and certain death. Complete with dysfunctional family
-                                values,
-                                light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.
-                            </p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book.png" alt="The book eaters" class="card-image">
+                    <div class="favorites-cards-wrapper">
+                        <div class="favorites-cards winter active ">
+                            <div class="card-1 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">THE BOOK EATERS <br> By Sunyi Dean</h5>
+                                <p class="card-description">An unusual sci-fi story about a book eater woman who tries
+                                    desperately to save her dangerous
+                                    mind-eater son from tradition and certain death. Complete with dysfunctional family
+                                    values,
+                                    light Sapphic romance, and a strong, complex protagonist. Not for the faint of
+                                    heart.
+                                </p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book.png" alt="The book eaters" class="card-image">
+                            </div>
+                            <div class="card-2 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">CACKLE <br>By Rachel Harrison</h5>
+                                <p class="card-description">Are your Halloween movies of choice The Witches of Eastwick
+                                    and
+                                    Practical Magic? Look no
+                                    further than here - where a woman recovering from a breakup moves to a quaint town
+                                    in
+                                    upstate New York and befriends a beautiful witch.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_1.png" alt="Cackle" class="card-image">
+                            </div>
+                            <div class="card-3 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">DANTE: POET OF THE SECULAR WORLD <br> By Erich Auerbach</h5>
+                                <p class="card-description">Auerbach's engaging book places the 'Comedy' within the
+                                    tradition of
+                                    epic, tragedy, and
+                                    philosophy in general, arguing for Dante's uniqueness as one who raised the
+                                    individual
+                                    and
+                                    his drama of soul into something of divine significance—an inspired introduction to
+                                    Dante's
+                                    main themes.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_2.png" alt="Dante:Poet of the secular world"
+                                    class="card-image">
+                            </div>
+                            <div class="card-4 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">THE LAST QUEEN<br>By Clive Irving</h5>
+                                <p class="card-description">A timely and revelatory new biography of Queen Elizabeth
+                                    (and
+                                    her
+                                    family) exploring how the Windsors have evolved and thrived as the modern world has
+                                    changed
+                                    around them.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_3.png" alt="The last queen" class="card-image">
+                            </div>
                         </div>
-                        <div class="card-2 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">CACKLE <br>By Rachel Harrison</h3>
-                            <p class="card-description">Are your Halloween movies of choice The Witches of Eastwick and
-                                Practical Magic? Look no
-                                further than here - where a woman recovering from a breakup moves to a quaint town in
-                                upstate New York and befriends a beautiful witch.</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_1.png" alt="Cackle" class="card-image">
+                        <div class="favorites-cards spring">
+                            <div class="card-5 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">THE BODY
+                                    <br>By Stephen King
+                                </h5>
+                                <p class="card-description">Powerful novel that takes you back to a nostalgic time,
+                                    exploring
+                                    both the beauty and danger and loss of innocence that is youth.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_4.png" alt="The body by Stephen King" class="card-image">
+                            </div>
+                            <div class="card-6 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">CARRY: A MEMOIR OF SURVIVAL ON STOLEN LAND<br>
+                                    By Toni Jenson
+                                </h5>
+                                <p class="card-description">This memoir about the author's relationship with gun
+                                    violence
+                                    feels
+                                    both expansive and intimate, resulting in a lyrical indictment of the way things
+                                    are.
+                                </p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_5.png" alt="Carry: a memoir of survival" class="card-image">
+                            </div>
+                            <div class="card-7 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">DAYS OF DISTRACTION<br>
+                                    By Alexandra Chang
+                                </h5>
+                                <p class="card-description">A sardonic view of Silicon Valley culture, a meditation on
+                                    race,
+                                    and
+                                    a journal of displacement and belonging, all in one form-defying package of spare
+                                    prose.
+                                </p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_6.png" alt="Days of distraction" class="card-image">
+                            </div>
+                            <div class="card-8 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">DOMINICANA<br>
+                                    By Angie Cruz
+                                </h5>
+                                <p class="card-description">A fascinating story of a teenage girl who marries a man
+                                    twice
+                                    her
+                                    age with the promise to bring her to America. Her marriage is an opportunity for her
+                                    family
+                                    to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_7.png" alt="Dominicana by Angie Cruz" class="card-image">
+                            </div>
                         </div>
-                        <div class="card-3 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">DANTE: POET OF THE SECULAR WORLD <br> By Erich Auerbach</h3>
-                            <p class="card-description">Auerbach's engaging book places the 'Comedy' within the
-                                tradition of
-                                epic, tragedy, and
-                                philosophy in general, arguing for Dante's uniqueness as one who raised the individual
-                                and
-                                his drama of soul into something of divine significance—an inspired introduction to
-                                Dante's
-                                main themes.</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_2.png" alt="Dante:Poet of the secular world" class="card-image">
+                        <div class="favorites-cards summer">
+                            <div class="card-9 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">CRUDE: A MEMOIR<br>
+                                    By Pablo Fajardo & ​​Sophie Tardy-Joubert
+                                </h5>
+                                <p class="card-description">Drawing and color by Damien Roudeau | This book illustrates
+                                    the
+                                    struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco
+                                    company
+                                    for damage their oil fields did to the Amazon and her people</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_8.png" alt="Crude: A Memoir" class="card-image">
+                            </div>
+                            <div class="card-10 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">LET MY PEOPLE GO SURFING<br>
+                                    By Yvon Chouinard
+                                </h5>
+                                <p class="card-description">Chouinard—climber, businessman, environmentalist—shares
+                                    tales of
+                                    courage and persistence from his experience of founding and leading Patagonia, Inc.
+                                    Full
+                                    title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including
+                                    10
+                                    More
+                                    Years of Business Unusual.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_9.png" alt="Let my people go surfing" class="card-image">
+                            </div>
+                            <div class="card-11 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">THE OCTOPUS MUSEUM: POEMS<br>
+                                    By Brenda Shaughnessy
+                                </h5>
+                                <p class="card-description">This collection of bold and scathingly beautiful feminist
+                                    poems
+                                    imagines what comes after our current age of environmental destruction, racism,
+                                    sexism,
+                                    and
+                                    divisive politics.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_10.png" alt="The octopus museum: poems" class="card-image">
+                            </div>
+                            <div class="card-12 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">SHARK DIALOGUES: A NOVEL<br>
+                                    By Kiana Davenport
+                                </h5>
+                                <p class="card-description">An epic saga of seven generations of one family encompasses
+                                    the
+                                    tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters
+                                    together in
+                                    an erotic tale of villains and dreamers, queens and revolutionaries, lepers and
+                                    healers.
+                                </p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_11.png" alt="Shark dialogues: a novel" class="card-image">
+                            </div>
                         </div>
-                        <div class="card-4 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">THE LAST QUEEN<br>By Clive Irving</h3>
-                            <p class="card-description">A timely and revelatory new biography of Queen Elizabeth (and
-                                her
-                                family) exploring how the Windsors have evolved and thrived as the modern world has
-                                changed
-                                around them.</p>
-                            <button disabled class="btn-action own-disabled">Own</button>
-                            <img src="./assets/img/book_3.png" alt="The last queen" class="card-image">
-                        </div>
-                        <div class="card-5 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">THE BODY
-                                <br>By Stephen King
-                            </h3>
-                            <p class="card-description">Powerful novel that takes you back to a nostalgic time,
-                                exploring
-                                both the beauty and danger and loss of innocence that is youth.</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_4.png" alt="The body by Stephen King" class="card-image">
-                        </div>
-                        <div class="card-6 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">CARRY: A MEMOIR OF SURVIVAL ON STOLEN LAND<br>
-                                By Toni Jenson
-                            </h3>
-                            <p class="card-description">This memoir about the author's relationship with gun violence
-                                feels
-                                both expansive and intimate, resulting in a lyrical indictment of the way things are.
-                            </p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_5.png" alt="Carry: a memoir of survival" class="card-image">
-                        </div>
-                        <div class="card-7 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">DAYS OF DISTRACTION<br>
-                                By Alexandra Chang
-                            </h3>
-                            <p class="card-description">A sardonic view of Silicon Valley culture, a meditation on race,
-                                and
-                                a journal of displacement and belonging, all in one form-defying package of spare prose.
-                            </p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_6.png" alt="Days of distraction" class="card-image">
-                        </div>
-                        <div class="card-8 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">DOMINICANA<br>
-                                By Angie Cruz
-                            </h3>
-                            <p class="card-description">A fascinating story of a teenage girl who marries a man twice
-                                her
-                                age with the promise to bring her to America. Her marriage is an opportunity for her
-                                family
-                                to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
-                            <button disabled class="btn-action own-disabled">Own</button>
-                            <img src="./assets/img/book_7.png" alt="Dominicana by Angie Cruz" class="card-image">
-                        </div>
-                        <div class="card-9 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">CRUDE: A MEMOIR<br>
-                                By Pablo Fajardo & ​​Sophie Tardy-Joubert
-                            </h3>
-                            <p class="card-description">Drawing and color by Damien Roudeau | This book illustrates the
-                                struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco
-                                company
-                                for damage their oil fields did to the Amazon and her people</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_8.png" alt="Crude: A Memoir" class="card-image">
-                        </div>
-                        <div class="card-10 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">LET MY PEOPLE GO SURFING<br>
-                                By Yvon Chouinard
-                            </h3>
-                            <p class="card-description">Chouinard—climber, businessman, environmentalist—shares tales of
-                                courage and persistence from his experience of founding and leading Patagonia, Inc. Full
-                                title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10
-                                More
-                                Years of Business Unusual.</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_9.png" alt="Let my people go surfing" class="card-image">
-                        </div>
-                        <div class="card-11 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">THE OCTOPUS MUSEUM: POEMS<br>
-                                By Brenda Shaughnessy
-                            </h3>
-                            <p class="card-description">This collection of bold and scathingly beautiful feminist poems
-                                imagines what comes after our current age of environmental destruction, racism, sexism,
-                                and
-                                divisive politics.</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_10.png" alt="The octopus museum: poems" class="card-image">
-                        </div>
-                        <div class="card-12 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">SHARK DIALOGUES: A NOVEL<br>
-                                By Kiana Davenport
-                            </h3>
-                            <p class="card-description">An epic saga of seven generations of one family encompasses the
-                                tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters
-                                together in
-                                an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.
-                            </p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_11.png" alt="Shark dialogues: a novel" class="card-image">
-                        </div>
-                        <div class="card-13 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">CASUAL CONVERSATION<br>
-                                By Renia White
-                            </h3>
-                            <p class="card-description">White's impressive debut collection takes readers through and
-                                beyond
-                                the concepts of conversation and the casual - both what we say to each other and what we
-                                don't, examining the possibilities around how we construct and communicate identity.
-                            </p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_12.png" alt="Casual conversation: by Renia White"
-                                class="card-image">
-                        </div>
-                        <div class="card-14 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">THE GREAT FIRE<br>
-                                By Lou Ureneck
-                            </h3>
-                            <p class="card-description">The harrowing story of an ordinary American and a principled
-                                Naval
-                                officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that
-                                saved a quarter of a million refugees from the Armenian Genocide</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_13.png" alt="The Great Fire: By Lou Ureneck" class="card-image">
-                        </div>
-                        <div class="card-15 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">RICKEY: THE LIFE AND LEGEND<br>
-                                By Howard Bryant
-                            </h3>
-                            <p class="card-description">With the fall rolling around, one can't help but think of
-                                baseball's
-                                postseason coming up! And what better way to prepare for it than reading the biography
-                                of
-                                one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_14.png" alt="Rickey: The Life and Legend" class="card-image">
-                        </div>
-                        <div class="card-16 card-wrapper">
-                            <h2 class="section-title card-main-title">Staff Picks</h2>
-                            <h3 class="card-subtitle">SLUG: AND OTHER STORIES<br>
-                                By Megan Milks
-                            </h3>
-                            <p class="card-description">Exes Tegan and Sara find themselves chained together by
-                                hairballs of
-                                codependency. A father and child experience the shared trauma of giving birth to gods
-                                from
-                                their wounds.</p>
-                            <button class="btn-action">Buy</button>
-                            <img src="./assets/img/book_15.png" alt="Slug: and other stories" class="card-image">
+                        <div class="favorites-cards autumn">
+                            <div class="card-13 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">CASUAL CONVERSATION<br>
+                                    By Renia White
+                                </h5>
+                                <p class="card-description">White's impressive debut collection takes readers through
+                                    and
+                                    beyond
+                                    the concepts of conversation and the casual - both what we say to each other and
+                                    what we
+                                    don't, examining the possibilities around how we construct and communicate identity.
+                                </p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_12.png" alt="Casual conversation: by Renia White"
+                                    class="card-image">
+                            </div>
+                            <div class="card-14 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">THE GREAT FIRE<br>
+                                    By Lou Ureneck
+                                </h5>
+                                <p class="card-description">The harrowing story of an ordinary American and a principled
+                                    Naval
+                                    officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort
+                                    that
+                                    saved a quarter of a million refugees from the Armenian Genocide</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_13.png" alt="The Great Fire: By Lou Ureneck"
+                                    class="card-image">
+                            </div>
+                            <div class="card-15 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">RICKEY: THE LIFE AND LEGEND<br>
+                                    By Howard Bryant
+                                </h5>
+                                <p class="card-description">With the fall rolling around, one can't help but think of
+                                    baseball's
+                                    postseason coming up! And what better way to prepare for it than reading the
+                                    biography
+                                    of
+                                    one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?
+                                </p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_14.png" alt="Rickey: The Life and Legend"
+                                    class="card-image">
+                            </div>
+                            <div class="card-16 card-wrapper">
+                                <h4 class="section-title card-main-title">Staff Picks</h4>
+                                <h5 class="card-subtitle">SLUG: AND OTHER STORIES<br>
+                                    By Megan Milks
+                                </h5>
+                                <p class="card-description">Exes Tegan and Sara find themselves chained together by
+                                    hairballs of
+                                    codependency. A father and child experience the shared trauma of giving birth to
+                                    gods
+                                    from
+                                    their wounds.</p>
+                                <button type="button" class="btn-action" data-toggle-id="login">Buy</button>
+                                <img src="./assets/img/book_15.png" alt="Slug: and other stories" class="card-image">
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -434,8 +476,8 @@
                             <p class="get-card-descr form-title">You will be able to see a reader card after logging
                                 into account or you can register a new account</p>
                             <div class="buttons-wrapper">
-                                <button class="signup-btn btn-action">Sign Up</button>
-                                <button class="login-btn btn-action">Log In</button>
+                                <a href="#register"><button class="signup-btn btn-action">Sign Up</button></a>
+                                <a href="#login"><button class="login-btn btn-action">Log In</button></a>
                             </div>
                         </div>
                     </div>
@@ -480,7 +522,190 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="./index.js"></script>
+
+    <div role="dialog" class="login login_open overlay" id="login">
+        <a class="cancel" href="#"></a>
+        <div class="auth_form popup1">
+            <div class="auth_form_title">
+                <h4 class="section-title auth_login_title">Login</h4>
+                <a class="close" href="#"></a>
+            </div>
+            <div class="auth_form_body">
+                <form id="loginForm" onsubmit="closeSelf()">
+                    <div class="auth_form_row">
+                        <label for="email" class="email_title card-description">E-mail or readers card</label>
+                        <input type="text" id="email_field" name="email" class="auth_email" required="required">
+                    </div>
+                    <div class="auth_form_row">
+                        <label for="password" class="password_title card-description">Password</label>
+                        <input type="password" id="password_field" name="password" class="auth_password"
+                            required="required" minlength="8">
+                    </div>
+                    <div class="auth_form_row">
+                        <button type="submit" class="auth_button btn-action" id="loginBtn">Log In</button>
+                    </div>
+                    <div class="auth_form_have_account">
+                        <p class="auth_no_account">Don't have an account?</p>
+                        <a href="#register" class="auth-form_link nav-link">Register</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" class="register register_open overlay" id="register">
+        <a class="cancel" href="#" id="closeRegForm"></a>
+        <div class="auth_form popup1 popup2">
+            <div class="auth_form_title">
+                <h4 class="section-title auth_login_title">Register</h4>
+                <a class="close" href="#"></a>
+            </div>
+            <div class="auth_form_body">
+                <form id="registerForm" onsubmit="closeSelf()">
+                    <div class="auth_form_row">
+                        <label for="first_name" class="first_name_title card-description">First name</label>
+                        <input type="text" id="first_name" name="first_name" class="auth_first_name"
+                            required="required">
+                    </div>
+                    <div class="auth_form_row">
+                        <label for="last_name" class="last_name_title card-description">Last name</label>
+                        <input type="text" id="last_name" name="last_name" class="auth_last_name" required="required">
+                    </div>
+                    <div class="auth_form_row">
+                        <label for="email" class="email_title card-description">E-mail</label>
+                        <input type="email" id="email" name="email" class="auth_email" required="required">
+                    </div>
+                    <div class="auth_form_row">
+                        <label for="password" class="password_title card-description">Password</label>
+                        <input type="password" id="password" name="password" class="auth_password" required="required"
+                            minlength="8">
+                    </div>
+                    <div class="auth_form_row">
+                        <button type="submit" class="auth_button btn-action" id="registerBtn" value="send">Sign
+                            Up</button>
+                    </div>
+                    <div class="auth_form_have_account">
+                        <p class="auth_no_account">Already have an account?</p>
+                        <a href="#login" class="auth-form_link nav-link">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" class="myprofile myprofile_open overlay" id="myprofile">
+        <a class="cancel" href="#" id="closeMyProfileModal"></a>
+        <div class="myprofile_modal_wrapper popup1">
+            <div class="left_section">
+                <div class="myprofile_data">
+                    <div class="shortcut"></div>
+                    <div class="fullname" id="fullname"></div>
+                </div>
+            </div>
+            <div class="right_section">
+                <div class="auth_form_title myprofile_modal_title">
+                    <h4 class="section-title auth_login_title myprofile_title">My Profile</h4>
+                    <a class="close" href="#"></a>
+                </div>
+                <div class="stats_block_wrapper">
+                    <div class="stats_block">
+                        <h5 class="stats_type card-description">Visits</h5>
+                        <div class="stats_icon stats_visits"></div>
+                        <div class="number_visits email_title"></div>
+                    </div>
+                    <div class="stats_block">
+                        <h5 class="stats_type card-description">Bonuses</h5>
+                        <div class="stats_icon stats_bonuses"></div>
+                        <div class="number_bonuses email_title"></div>
+                    </div>
+                    <div class="stats_block">
+                        <h5 class="stats_type card-description">Books</h5>
+                        <div class="stats_icon stats_books"></div>
+                        <div class="number_books email_title"></div>
+                    </div>
+                </div>
+                <div class="rented_block_wrapper">
+                    <h4 class="rented_title stats_type">Rented books</h4>
+                    <div class="rented_books_list"></div>
+                </div>
+                <div class="card_number_wrapper">
+                    <p class="stats_type card_number_title">Card number</p>
+                    <p class="stats_type card_number_number">F00234030</p>
+                    <div class="copy_wrapper">
+                        <button class="copy_book btn-action"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" class="bycard bycard_open" id="bycard">
+        <a class="blocker" onclick="hidePopup()" href="#" id="closeByCardModal"></a>
+
+        <div class="auth_form bycard_wrapper popup1">
+            <div class="auth_form_title title_wrapper">
+                <h4 class="section-title bycard_modal_title">Buy a library card</h4>
+                <a class="close bycard_close" href="#"
+                    onclick="document.getElementById('bycard').style.display='none'"></a>
+            </div>
+            <div class="auth_form_wrapper">
+                <div class="auth_form_body bycard_modal_body">
+                    <form id="bycardForm" onsubmit="closeSelf()">
+                        <div class="auth_form_row">
+                            <label for="card_number" class="first_name_title card-description">Bank card number</label>
+                            <input type="text" pattern="[0-9]{16}" maxlength="16" id="card_number" name="card_number"
+                                class="auth_first_name" required="required">
+                        </div>
+                        <div class="auth_form_row">
+                            <label for="expiration_code" class="last_name_title card-description">Expiration
+                                code</label>
+                            <div>
+                                <input type="text" pattern="[0-9]{2}" maxlength="2" id="expiration_code"
+                                    name="expiration_code" class="auth_last_name split_input" required="required">
+                                <input type="text" pattern="[0-9]{2}" maxlength="2" id="expiration_code2"
+                                    name="expiration_code2" class="auth_last_name split_input" required="required">
+                            </div>
+                        </div>
+                        <div class="auth_form_row">
+                            <label for="cvc" class="last_name_title card-description">CVC</label>
+                            <input type="text" pattern="[0-9]{3}" maxlength="3" id="cvc" name="cvc"
+                                class="auth_last_name split_input" required="required">
+                        </div>
+                        <div class="auth_form_row">
+                            <label for="cardholder_name" class="last_name_title card-description">Cardholder
+                                name</label>
+                            <input type="text" id="cardholder_name" name="cardholder_name" class="auth_last_name"
+                                required="required">
+                        </div>
+                        <div class="auth_form_row">
+                            <label for="postal_code" class="last_name_title card-description">Postal code</label>
+                            <input type="number" id="postal_code" name="postal_code" class="auth_last_name"
+                                required="required">
+                        </div>
+                        <div class="auth_form_row">
+                            <label for="city_town" class="last_name_title card-description">City / Town</label>
+                            <input type="text" id="city_town" name="city_town" class="auth_last_name"
+                                required="required">
+                        </div>
+                        <div class="auth_form_row">
+                            <button type="submit" class="auth_button btn-action" id="bycardBtn" value="send"
+                                disabled>Buy</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="auth_form_description">
+                    <p class="card-description bycard_description">If you are live, work, attend school, or pay property
+                        taxes in New York
+                        State, you can get a $25
+                        digital library card right now using this online form. Visitors to New York State can also use
+                        this
+                        form to apply for a temporary card.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 
 </html>
