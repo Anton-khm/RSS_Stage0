@@ -1445,6 +1445,7 @@ h4 {
     width: auto;
     margin: 0 15px;
     color: #BB945F;
+    text-transform: uppercase;
 }
 
 .copy_wrapper {
