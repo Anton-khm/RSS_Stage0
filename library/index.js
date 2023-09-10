@@ -19,7 +19,7 @@ const swiper = new Swiper(".swiper", {
     }
 });
 
-console.log('Score: 50 / 50\n1.Вёрстка соответствует макету. Ширина экрана 768px +26\n2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n3.На ширине экрана 768рх реализовано адаптивное меню +12')
+console.log('Score: 190 / 200\n1.Пользователь не зарегистрирован +50\n2.Пользователь на этапе регистрации +45\n3.Пользователь на этапе входа в учётную запись после регистрации. +29\n4.Пользователь после входа в учётную запись +66')
 
 
 //Login_modal
@@ -132,8 +132,39 @@ function toggleTabs(event) {
 
 //Register functionality
 let visitsNumber = 0;
-let books = [{ author: "Test", title: "Test" }, { author: "Test1", title: "Test2" }];
-console.log(books)
+let books = []
+let bookNames = document.querySelectorAll(".favorites-cards-wrapper .card-subtitle");
+let authors = []
+let bookAuthors = document.querySelectorAll(".favorites-cards-wrapper .card-subtitle");
+
+bookNames.forEach((userItem) => {
+    books.push(userItem.textContent);
+});
+
+bookAuthors.forEach((userItem) => {
+    authors.push(userItem.textContent);
+});
+
+const obj = {};
+
+let owls = books.map((key, index) => ({
+    [key]: authors[index],
+}));
+
+
+// let purchasedBooks = []
+// localStorage.setItem('books', JSON.stringify(owls));
+// console.log(localStorage.getItem('books'))
+
+// purchasedBooks.push(books[1]);
+// localStorage.setItem('books', JSON.stringify(purchasedBooks));
+// console.log(localStorage.getItem('books'))
+
+// purchasedBooks.push(books[2]);
+// localStorage.setItem('books', JSON.stringify(purchasedBooks));
+// console.log(localStorage.getItem('books'))
+
+
 
 window.onload = function () {
 
@@ -317,13 +348,33 @@ document.addEventListener("DOMContentLoaded", function () {
 //     document.getElementById("closeByCardModal").click();
 // }
 
-
 const buyCardBtns = document.querySelectorAll('.favorites-cards .btn-action');
+
+// function getParentClass(el) {
+//     const parentClass = el.parentElement.classList;
+//     return parentClass;
+// }
+
+function getBookTitle(el) {
+    const bookTitle = el.parentElement.childNodes[3].textContent;
+    // console.log(parentClass)
+    return bookTitle;
+}
+
+function getBookAuthor(el) {
+    const bookTitle = el.parentElement.childNodes[3].textContent;
+    // console.log(parentClass)
+    return bookTitle;
+}
+
+// let purchasedBooks = [];
+// let objc = {};
+
 
 buyCardBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         if (localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') === 'true') {
-            document.getElementById('bycard').style.display = 'block';
+            if (btn.innerHTML === 'Own') { return } else { document.getElementById('bycard').style.display = 'block'; }
 
             const buyCardForm = document.getElementById("bycardForm");
             const buyCardBtn = document.getElementById("bycardBtn");
@@ -339,10 +390,42 @@ buyCardBtns.forEach(btn => {
                 buyCardBtn.disabled = buyCardNumber.value == '' || expirationCode.value == '' || expirationCode2.value == '' || cvc.value == '' || cardholderName.value == '' || postalCode.value == '' || cityTown.value == '';
             }
 
-            // buyCardForm.addEventListener('submit', function () {
-            //     localStorage.setItem('books', Number(localStorage.getItem('books')) + 1);
+            // window.onload = function () {
+            //     // Check for LocalStorage support.
+            //     if (localStorage) {
+            buyCardForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                document.getElementById('bycard').style.display = 'none'
+                let purchasedBooks = [];
+                let objc = {};
+                objc.title = getBookTitle(btn);
+                objc.author = getBookAuthor(btn);
 
-            // })
+                // let purchasedTitle = [].push(getBookTitle(btn));
+                // let purchasedAuthor = [getBookAuthor(btn)];
+                // let owls = purchasedTitle.map((key, index) => ({
+                //     [key]: purchasedAuthor[index],
+                // }));
+
+                purchasedBooks.push(objc);
+
+                localStorage.setItem('books', JSON.stringify(newArr));
+                if (localStorage.getItem('books').length() === 0) {
+
+                }
+                btn.classList.add("own-disabled");
+                btn.innerHTML = 'Own';
+                // event.preventDefault();
+            })
+            // }
+            // }
+
+            // console.log(document.querySelector(".card-subtitle").value)
+
+            // getParentClass(btn)
+
+            //     console.log(document.querySelector(".card-subtitle").textContent)
+            // }
         } else {
             if ((localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') !== 'true') || localStorage.getItem('isRegistered') !== 'true') {
                 favoritesBooks.onclick = function (event) {
