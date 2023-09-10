@@ -181,7 +181,7 @@ window.onload = function () {
             visitsNumber += 1;
 
             //generate random card number
-            const randomNumber = Math.floor(Math.random() * Math.pow(10, 10));
+            const randomNumber = Math.floor(Math.random() * Math.pow(10, 11));
             const hex = randomNumber.toString(16);
 
             // Save fields in localStorage.
