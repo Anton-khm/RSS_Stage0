@@ -133,23 +133,23 @@ function toggleTabs(event) {
 //Register functionality
 let visitsNumber = 0;
 let books = []
-let bookNames = document.querySelectorAll(".favorites-cards-wrapper .card-subtitle");
-let authors = []
-let bookAuthors = document.querySelectorAll(".favorites-cards-wrapper .card-subtitle");
+// let bookNames = document.querySelectorAll(".favorites-cards-wrapper .card-subtitle");
+// let authors = []
+// let bookAuthors = document.querySelectorAll(".favorites-cards-wrapper .card-subtitle");
 
-bookNames.forEach((userItem) => {
-    books.push(userItem.textContent);
-});
+// bookNames.forEach((userItem) => {
+//     books.push(userItem.textContent);
+// });
 
-bookAuthors.forEach((userItem) => {
-    authors.push(userItem.textContent);
-});
+// bookAuthors.forEach((userItem) => {
+//     authors.push(userItem.textContent);
+// });
 
-const obj = {};
+// const obj = {};
 
-let owls = books.map((key, index) => ({
-    [key]: authors[index],
-}));
+// let owls = books.map((key, index) => ({
+//     [key]: authors[index],
+// }));
 
 
 // let purchasedBooks = []
@@ -181,8 +181,9 @@ window.onload = function () {
             visitsNumber += 1;
 
             //generate random card number
-            const randomNumber = Math.floor(Math.random() * Math.pow(10, 11));
-            const hex = randomNumber.toString(16);
+            const randomNumber = Math.random().toString().slice(2, 11);
+            // const hex = randomNumber.toString(16);
+            const hex = ('0' + randomNumber.toString(16).toUpperCase()).slice(-9);
 
             // Save fields in localStorage.
             localStorage.setItem('firstName', firstName);
@@ -239,7 +240,7 @@ function changeProfileIcon(block) {
             profileIcon.addEventListener("click", () => {
                 const randNumber = localStorage.getItem('cardNumber');
                 profileTitle.innerHTML = randNumber;
-                profileTitle.style.fontSize = '14px';
+                profileTitle.style.fontSize = '12px';
             })
         }
     }
@@ -300,7 +301,10 @@ const myProfileDialog = document.getElementById("myprofile");
 myProfileBtn.addEventListener("click", () => {
     const fullNameTitle = document.querySelector(".fullname");
     const visitsNumber = document.querySelector(".number_visits");
+    const bonusesNumber = document.querySelector(".number_bonuses");
     const booksNumber = document.querySelector(".number_books");
+    const cardNumber = document.querySelector(".card_number_number");
+    const copyBtn = document.querySelector(".copy_book");
 
     let firstName = localStorage.getItem('firstName');
     let lastName = localStorage.getItem('lastName');
@@ -315,8 +319,22 @@ myProfileBtn.addEventListener("click", () => {
     changeProfileIcon(myProfileImage);
 
     visitsNumber.innerHTML = localStorage.getItem('numberVisits');
-    // booksNumber.innerHTML = localStorage.getItem('books');
+    let books = JSON.parse(localStorage.getItem('books'));
+    booksNumber.innerHTML = books.length;
+
+    let bonuses = books.length * 20;
+    bonusesNumber.innerHTML = bonuses;
+
+    cardNumber.innerHTML = localStorage.getItem('cardNumber');
+
 })
+
+function copyCard() {
+    // Get the text field
+    let text = document.querySelector(".card_number_number").innerHTML;
+    navigator.clipboard.writeText(text);
+    alert('Content copied to clipboard: ' + text);
+}
 
 //Logout
 const logoutBtn = document.querySelector(".logout_link");
@@ -357,17 +375,22 @@ const buyCardBtns = document.querySelectorAll('.favorites-cards .btn-action');
 
 function getBookTitle(el) {
     const bookTitle = el.parentElement.childNodes[3].textContent;
-    // console.log(parentClass)
+    // const bookAuthor = el.parentElement.childNodes[3].textContent;
+    // let obj = {
+    //     title: bookTitle,
+    //     author: bookAuthor
+    // }
+    // // console.log(parentClass)
     return bookTitle;
 }
 
-function getBookAuthor(el) {
-    const bookTitle = el.parentElement.childNodes[3].textContent;
-    // console.log(parentClass)
-    return bookTitle;
-}
+// function getBookAuthor(el) {
+//     const bookTitle = el.parentElement.childNodes[3].textContent;
+//     // console.log(parentClass)
+//     return bookTitle;
+// }
 
-// let purchasedBooks = [];
+let purchasedBooks = [];
 // let objc = {};
 
 
@@ -385,6 +408,13 @@ buyCardBtns.forEach(btn => {
             const cardholderName = document.getElementById("cardholder_name");
             const postalCode = document.getElementById("postal_code");
             const cityTown = document.getElementById("city_town");
+            // if (purchasedBooks.length !== 0){
+            purchasedBooks.push(getBookTitle(btn));
+            // }
+
+            let owls = purchasedBooks.map((key, index) => ({
+                [key]: [index],
+            }));
 
             buyCardForm.oninput = () => {
                 buyCardBtn.disabled = buyCardNumber.value == '' || expirationCode.value == '' || expirationCode2.value == '' || cvc.value == '' || cardholderName.value == '' || postalCode.value == '' || cityTown.value == '';
@@ -395,24 +425,43 @@ buyCardBtns.forEach(btn => {
             //     if (localStorage) {
             buyCardForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                document.getElementById('bycard').style.display = 'none'
-                let purchasedBooks = [];
-                let objc = {};
-                objc.title = getBookTitle(btn);
-                objc.author = getBookAuthor(btn);
-
+                document.getElementById('bycard').style.display = 'none';
+                // getBookTitle(btn);
+                // let purchasedBooks = [];
+                // purchasedBooks.push(getBookTitle(btn));
+                // for (const key in obj) {
+                //     delete obj[key];
+                // }
+                // event.preventDefault();
+                // console.log(getBookTitle(btn));
+                // objc.author = getBookAuthor(btn);
+                // console.log(obj);
                 // let purchasedTitle = [].push(getBookTitle(btn));
                 // let purchasedAuthor = [getBookAuthor(btn)];
-                // let owls = purchasedTitle.map((key, index) => ({
+                // let owls = purchasedBooks.map((key, index) => ({
                 //     [key]: purchasedAuthor[index],
                 // }));
+                // let owls = purchasedBooks.map((key, index) => ({
+                //     [key]: [index],
+                // }));
 
-                purchasedBooks.push(objc);
+                console.log(owls)
 
-                localStorage.setItem('books', JSON.stringify(newArr));
-                if (localStorage.getItem('books').length() === 0) {
+                let fill = JSON.parse(localStorage.getItem('books')) || [];
+                console.log(fill);
+                fill.push(owls);
+                localStorage.setItem('books', JSON.stringify(owls));
 
-                }
+
+                // let fill = JSON.parse(localStorage.getItem('books')) || [];
+                // console.log(fill);
+                // fill.push(objc);
+                // localStorage.setItem('books', JSON.stringify(fill));
+
+
+                // if (localStorage.getItem('books').length() === 0) {
+
+                // }
                 btn.classList.add("own-disabled");
                 btn.innerHTML = 'Own';
                 // event.preventDefault();
