@@ -1421,9 +1421,13 @@ h4 {
     margin: 0;
     padding: 0;
     padding-left: 29px;
+    display: flex;
+    flex-direction: column;
+    height: 55px;
+    overflow: auto;
 }
 
-.list_item {
+.books_list_wrap li {
     line-height: 30px;
     letter-spacing: 2px;
 }

@@ -370,33 +370,39 @@ const buyCardBtns = document.querySelectorAll('.favorites-cards .btn-action');
 // function getParentClass(el) {
 //     const parentClass = el.parentElement.classList;
 //     return parentClass;
-// }
 
-function getBookTitle(el) {
-    const bookTitle = el.parentElement.childNodes[3].textContent;
-    // const bookAuthor = el.parentElement.childNodes[3].textContent;
-    // let obj = {
-    //     title: bookTitle,
-    //     author: bookAuthor
-    // }
-    // // console.log(parentClass)
-    return bookTitle;
-}
-
-// function getBookAuthor(el) {
-//     const bookTitle = el.parentElement.childNodes[3].textContent;
-//     // console.log(parentClass)
-//     return bookTitle;
-// }
 
 let purchasedBooks = [];
-// let objc = {};
 
+function buyBook(card) {
+    const { id, name, author } = card.dataset;
+    let userBooks = JSON.parse(localStorage.getItem('books')) || [];
+    userBooks.push({ id, name, author });
+    localStorage.setItem('books', JSON.stringify(userBooks));
+}
+
+function insertBooks() {
+    const bookList = document.querySelector(".books_list_wrap");
+    let userBooks = JSON.parse(localStorage.getItem('books')) || [];
+    const bookItem = userBooks.map(
+        ({ name, author }) => `<li>${author}, ${name}\n</li>`
+    );
+    bookList.innerHTML = bookItem.join("");
+    // bookItem.classList.toggle(".list_item");
+}
 
 buyCardBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (event) => {
         if (localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') === 'true') {
             if (btn.innerHTML === 'Own') { return } else { document.getElementById('bycard').style.display = 'block'; }
+            if (JSON.parse(localStorage.getItem('books')).length >= 1) {
+                document.getElementById('bycard').style.display = 'none';
+                event.preventDefault(event);
+                buyBook(btn);
+                insertBooks();
+                btn.classList.add("own-disabled");
+                btn.innerHTML = 'Own';
+            }
 
             const buyCardForm = document.getElementById("bycardForm");
             const buyCardBtn = document.getElementById("bycardBtn");
@@ -407,82 +413,29 @@ buyCardBtns.forEach(btn => {
             const cardholderName = document.getElementById("cardholder_name");
             const postalCode = document.getElementById("postal_code");
             const cityTown = document.getElementById("city_town");
-            // if (purchasedBooks.length !== 0){
-            purchasedBooks.push(getBookTitle(btn));
-            // }
-
-            let owls = purchasedBooks.map((key, index) => ({
-                [key]: [index],
-            }));
 
             buyCardForm.oninput = () => {
                 buyCardBtn.disabled = buyCardNumber.value == '' || expirationCode.value == '' || expirationCode2.value == '' || cvc.value == '' || cardholderName.value == '' || postalCode.value == '' || cityTown.value == '';
             }
 
-            // window.onload = function () {
-            //     // Check for LocalStorage support.
-            //     if (localStorage) {
             buyCardForm.addEventListener('submit', function (event) {
                 event.preventDefault();
                 document.getElementById('bycard').style.display = 'none';
-                // getBookTitle(btn);
-                // let purchasedBooks = [];
-                // purchasedBooks.push(getBookTitle(btn));
-                // for (const key in obj) {
-                //     delete obj[key];
-                // }
-                // event.preventDefault();
-                // console.log(getBookTitle(btn));
-                // objc.author = getBookAuthor(btn);
-                // console.log(obj);
-                // let purchasedTitle = [].push(getBookTitle(btn));
-                // let purchasedAuthor = [getBookAuthor(btn)];
-                // let owls = purchasedBooks.map((key, index) => ({
-                //     [key]: purchasedAuthor[index],
-                // }));
-                // let owls = purchasedBooks.map((key, index) => ({
-                //     [key]: [index],
-                // }));
 
-                console.log(owls)
+                buyBook(btn);
+                insertBooks();
 
-                let fill = JSON.parse(localStorage.getItem('books')) || [];
-                console.log(fill);
-                fill.push(owls);
-                localStorage.setItem('books', JSON.stringify(owls));
-
-
-                // let fill = JSON.parse(localStorage.getItem('books')) || [];
-                // console.log(fill);
-                // fill.push(objc);
-                // localStorage.setItem('books', JSON.stringify(fill));
-
-
-                // if (localStorage.getItem('books').length() === 0) {
-
-                // }
                 btn.classList.add("own-disabled");
                 btn.innerHTML = 'Own';
-                // event.preventDefault();
             })
-            // }
-            // }
 
-            // console.log(document.querySelector(".card-subtitle").value)
-
-            // getParentClass(btn)
-
-            //     console.log(document.querySelector(".card-subtitle").textContent)
-            // }
         } else {
             if ((localStorage.getItem('isRegistered') === 'true' & localStorage.getItem('isAuthorized') !== 'true') || localStorage.getItem('isRegistered') !== 'true') {
                 favoritesBooks.onclick = function (event) {
                     let id = event.target.dataset.toggleId;
                     if (!id) return;
-
                     openLoginModal();
                 }
-
                 function openLoginModal() {
                     openLoginModalBtn.click();
                 }
