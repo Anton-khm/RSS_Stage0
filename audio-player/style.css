@@ -20,7 +20,8 @@ body {
     flex-direction: column;
     align-items: center;
     margin: auto;
-    width: 30%;
+    width: 35%;
+    padding: 10px;
     background: radial-gradient(circle, rgba(0, 212, 255, 1) 0%, rgba(75, 99, 94, 1) 58%, rgba(21, 23, 22, 1) 100%);
     border-radius: 10px;
 }
@@ -30,6 +31,50 @@ body {
     height: 20rem;
     margin-bottom: 1rem;
     background-image: url(./assets/img/track_image2.jfif);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.audio_player {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+audio {
+    width: 75%;
+}
+
+.prev,
+.next {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    transition: .3s opacity;
+}
+
+.prev:hover,
+.next:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.prev {
+    background-image: url(./assets/svg/rewind-double-arrows-outline-svgrepo-com.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.filter-green {
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.next {
+    background-image: url(./assets/svg/fast-forward-button-outline-svgrepo-com.svg);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
