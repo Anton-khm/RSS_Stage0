@@ -1,0 +1,70 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+.wrapper {
+    height: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 30%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 1) 0%, rgba(75, 99, 94, 1) 58%, rgba(21, 23, 22, 1) 100%);
+    border-radius: 10px;
+}
+
+.audio_background {
+    width: 95%;
+    height: 20rem;
+    margin-bottom: 1rem;
+    background-image: url(./assets/img/track_image2.jfif);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer {
+    height: 7%;
+}
+
+.creation-date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 20px;
+    letter-spacing: 2px;
+    color: #312828;
+}
+
+.year {
+    margin-right: 10px;
+}
+
+.github {
+    display: block;
+}
+
+.github,
+.rss {
+    color: #312828;
+    text-decoration: none;
+    line-height: 45px;
+    transition: .3s opacity;
+}
+
+.github:hover,
+.rss:hover {
+    opacity: 0.5;
+}
