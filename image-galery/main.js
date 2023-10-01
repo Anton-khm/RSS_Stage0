@@ -68,3 +68,4 @@ clearBtn.addEventListener("click", function (event) {
     input.value = '';
 })
 
+console.log('Все пункты выполнены. 60/60')
