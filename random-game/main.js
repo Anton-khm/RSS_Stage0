@@ -84,7 +84,17 @@ function isGameOver() {
         context.fillStyle = "white";
         context.font = "50px Verdana";
 
-        context.fillText("Game Over!", canvas.width / 6.5, canvas.height / 2)
+        context.fillText("Game Over!", canvas.width / 6.5, canvas.height / 2);
+
+        if (localStorage.getItem("scores") === null) {
+            localStorage.setItem("scores", score);
+        } else {
+            let result = localStorage.getItem("scores");
+            let results = [];
+            results.push(score);
+            results.push(result);
+            localStorage.setItem("scores", results);
+        }
     }
 
     return gameOver;
