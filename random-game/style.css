@@ -1,0 +1,72 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    font-family: 'Inter', sans-serif;
+    color: #3a4845;
+}
+
+.wrapper {
+    height: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+canvas {
+    background: #3f4f5f;
+    margin: 20px;
+}
+
+.game_container {
+    display: flex;
+    width: 700px;
+    height: 600px;
+}
+
+footer {
+    height: 7%;
+}
+
+.creation-date-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 20px;
+    letter-spacing: 2px;
+    color: #312828;
+}
+
+.year {
+    margin-right: 10px;
+}
+
+.github {
+    display: block;
+}
+
+.github,
+.rss {
+    color: #312828;
+    text-decoration: none;
+    line-height: 45px;
+    transition: .3s opacity;
+}
+
+.rss {
+    width: 55px;
+    height: 20px;
+    display: block;
+    background-image: url(./assets/svg/rs_school_js.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.github:hover,
+.rss:hover {
+    opacity: 0.5;
+}
