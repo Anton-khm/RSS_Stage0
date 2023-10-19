@@ -86,15 +86,20 @@ function isGameOver() {
 
         context.fillText("Game Over!", canvas.width / 6.5, canvas.height / 2);
 
-        if (localStorage.getItem("scores") === null) {
-            localStorage.setItem("scores", score);
-        } else {
-            let result = localStorage.getItem("scores");
-            let results = [];
-            results.push(score);
-            results.push(result);
-            localStorage.setItem("scores", results);
-        }
+        let results = JSON.parse(localStorage.getItem("scores")) || [];
+        results.push({ gameNumber: results.length, score: score });
+        results.sort((a, b) => b - a);
+        results = results.slice(0, 10);
+        localStorage.setItem("scores", JSON.stringify(results));
+        // if (localStorage.getItem("scores") === null) {
+        //     localStorage.setItem("scores", score);
+        // } else {
+        //     let result = localStorage.getItem("scores");
+        //     let results = [];
+        //     results.push(score);
+        //     results.push(result);
+        //     localStorage.setItem("scores", results);
+        // }
     }
 
     return gameOver;
